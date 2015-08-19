@@ -1,0 +1,3 @@
+sp_member_homepage:
+    pattern:  /member/{id}
+    defaults: { _controller: OCPlatformBundle:Member:index }
