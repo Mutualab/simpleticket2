@@ -1,6 +1,6 @@
 <?php
 
-namespace OC\PlatformBundle\Controller;
+namespace SP\MemberBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Response;
 
