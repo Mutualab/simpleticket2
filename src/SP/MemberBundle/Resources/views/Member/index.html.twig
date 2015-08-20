@@ -1,11 +1,30 @@
 {% extends "SPMemberBundle::layout.html.twig" %}
 
+{% block title %}
+  Accueil - {{ parent() }}
 
-{% block title %}{{ parent() }} - Index{% endblock %}
+{% endblock %}
+
+{% block spmember_body %}
 
 
-{% block body %}
+  <h2>Liste des membres</h2>
 
-  Notre plateforme est un peu vide pour le moment, mais cela viendra !
+  <ul>
+    {% for member in listMembers %}
+      <li>
+        <a href="{{ path('sp_member_view', {'id': member.id}) }}">
+          {{ member.firstname}}
+        </a>
+      </li>
+
+    {% else %}
+
+      <li>Pas (encore !) de membres</li>
+
+    {% endfor %}
+
+  </ul>
+
 
 {% endblock %}
