@@ -12,9 +12,9 @@ sp_member_add:
     pattern:  /member/add
     defaults: { _controller:SPMemberBundle:Member:add }
 
-sp_member_update:
-    pattern:  /member/update/{id}
-    defaults: { _controller:SPMemberBundle:Member:update }
+sp_member_edit:
+    pattern:  /member/edit/{id}
+    defaults: { _controller:SPMemberBundle:Member:edit }
     requirements:
         id: \d+
 

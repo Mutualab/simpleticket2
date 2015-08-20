@@ -21,7 +21,7 @@ class MemberController
         return new Response("ajouter Member !");
     }
 
-    public function updateAction($id)
+    public function editAction($id)
     {
         return new Response("update Member".$id);
     }
