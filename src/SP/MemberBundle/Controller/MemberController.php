@@ -2,9 +2,12 @@
 
 namespace SP\MemberBundle\Controller;
 
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+// service templating
+use Symfony\Component\HttpFoundation\Request;
 
-class MemberController
+class MemberController extends Controller
 {
     public function indexAction()
     {
@@ -13,7 +16,7 @@ class MemberController
 
     public function viewAction($id)
     {
-        return new Response("consulter fiche Member: ".$id);
+        return $this->render('SPMemberBundle:Member:view.html.twig',array('id'  => $id));
     }
 
     public function addAction()
