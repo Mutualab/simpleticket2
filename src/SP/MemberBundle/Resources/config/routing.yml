@@ -1,25 +1,25 @@
 sp_member_homepage:
-    pattern:  /member
+    pattern:  /
     defaults: { _controller:SPMemberBundle:Member:index }
 
 sp_member_view:
-    pattern:  /member/{id}
+    pattern:  /{id}
     defaults: { _controller:SPMemberBundle:Member:view }
     requirements:
         id: \d+
 
 sp_member_add:
-    pattern:  /member/add
+    pattern:  /add
     defaults: { _controller:SPMemberBundle:Member:add }
 
 sp_member_edit:
-    pattern:  /member/edit/{id}
+    pattern:  /edit/{id}
     defaults: { _controller:SPMemberBundle:Member:edit }
     requirements:
         id: \d+
 
 sp_member_delete:
-    pattern:  /member/delete/{id}
+    pattern:  /delete/{id}
     defaults: { _controller:SPMemberBundle:Member:delete }
     requirements:
         id: \d+
