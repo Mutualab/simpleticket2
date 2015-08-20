@@ -6,6 +6,10 @@
     <title>{% block title %}SP Membres{% endblock %}</title>
   </head>
 
+    <div id="menu">
+      {{ render(controller("SPMemberBundle:Member:menu")) }}
+    </div>
+
   <body>
     {% block body %}
 

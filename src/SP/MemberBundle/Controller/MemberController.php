@@ -16,22 +16,74 @@ class MemberController extends Controller
 
     public function viewAction($id)
     {
-         return $this->render('SPMemberBundle:Member:view.html.twig',array('id'  => $id));
+        // Ici, on récupérera la fiche correspondante à l'id $id
+
+         return $this->render('SPMemberBundle:Member:view.html.twig',array('id'=> $id));
     }
 
-    public function addAction()
+    public function addAction(Request $request)
     {
-        return new Response("ajouter Member !");
+     // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
+
+    if ($request->isMethod('POST')) {
+
+      // Ici, on s'occupera de la création et de la gestion du formulaire
+
+      $request->getSession()->getFlashBag()->add('notice','Fiche bien enregistrée.');
+
+      // Puis on redirige vers la page de visualisation de cette fiche
+
+      return $this->redirect($this->generateUrl('sp_member_view', array('id' => 5)));
+
     }
 
-    public function editAction($id)
+
+    // Si on n'est pas en POST, alors on affiche le formulaire
+
+    return $this->render('SPMemberBundle:Member:add.html.twig');
+    }
+
+    public function editAction($id, Request $request)
     {
-        return new Response("update Member".$id);
+         // Ici, on récupérera la fiche correspondante à $id
+
+
+    // Même mécanisme que pour l'ajout
+
+    if ($request->isMethod('POST')) {$request->getSession()->getFlashBag()->add('notice','Fiche bien modifiée.');
+
+      return $this->redirect($this->generateUrl('sp_member_view', array('id'=>5)));
+
+    }
+
+
+    return $this->render('SPMemberBundle:Member:edit.html.twig');
     }
 
     public function deleteAction($id)
     {
-        return new Response("Attention!! Delete Member ".$id);
+        // Ici, on récupérera la fiche correspondant à $id
+
+    // Ici, on gérera la suppression de la fiche en question
+
+
+    return $this->render('SPMemberBundle:Member:delete.html.twig');
+    }
+
+    public function menuAction()
+    {
+        // On fixe en dur une liste ici, bien entendu par la suite
+    // on la récupérera depuis la BDD !
+    $listMember = array(
+      array('id' => 2, 'usr_firstname' => 'McCartney'),
+      array('id' => 5, 'usr_firstname' => 'Star'),
+      array('id' => 9, 'usr_firstname' => 'Harrison')
+    );
+
+    return $this->render('SPMemberBundle:Member:menu.html.twig', array(
+      // Tout l'intérêt est ici : le contrôleur passe
+      // les variables nécessaires au template !
+      'listMembers' => $listMember));
     }
 
 }
