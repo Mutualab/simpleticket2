@@ -11,7 +11,7 @@ class MemberController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SPMemberBundle:Member:index.html.twig');
+        return $this->render('SPMemberBundle:Member:index.html.twig', array( 'listMembers' => array()));
     }
 
     public function viewAction($id)
@@ -70,7 +70,7 @@ class MemberController extends Controller
     return $this->render('SPMemberBundle:Member:delete.html.twig');
     }
 
-    public function menuAction()
+    public function memberListAction()
     {
         // On fixe en dur une liste ici, bien entendu par la suite
     // on la récupérera depuis la BDD !
@@ -80,7 +80,7 @@ class MemberController extends Controller
       array('id' => 9, 'usr_firstname' => 'Harrison')
     );
 
-    return $this->render('SPMemberBundle:Member:menu.html.twig', array(
+    return $this->render('SPMemberBundle:Member:memberList.html.twig', array(
       // Tout l'intérêt est ici : le contrôleur passe
       // les variables nécessaires au template !
       'listMembers' => $listMember));
