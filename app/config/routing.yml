@@ -1,6 +1,5 @@
 sp_member:
-    resource: "@SPMemberBundle/Controller/"
-    type:     annotation
+    resource: "@SPMemberBundle/Resources/config/routing.yml"
     prefix:   /
 
 app:
