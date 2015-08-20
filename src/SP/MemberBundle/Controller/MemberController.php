@@ -11,12 +11,12 @@ class MemberController extends Controller
 {
     public function indexAction()
     {
-        return new Response("Hello Member !");
+        return $this->render('SPMemberBundle:Member:index.html.twig');
     }
 
     public function viewAction($id)
     {
-        return $this->render('SPMemberBundle:Member:view.html.twig',array('id'  => $id));
+         return $this->render('SPMemberBundle:Member:view.html.twig',array('id'  => $id));
     }
 
     public function addAction()
