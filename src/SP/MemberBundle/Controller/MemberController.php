@@ -15,7 +15,12 @@ class MemberController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('SPMemberBundle:Member:index.html.twig', array( 'listMembers' => array()));
+       $listmembers = $this->getDoctrine()
+        ->getRepository('SPMemberBundle:Member')
+        ->findAll();
+
+
+         return $this->render('SPMemberBundle:Member:index.html.twig',array('listmembers'=> $listmembers));
     }
 
     public function viewAction($id)

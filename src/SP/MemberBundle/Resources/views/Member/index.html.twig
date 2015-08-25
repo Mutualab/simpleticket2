@@ -11,10 +11,10 @@
   <h2>Liste des membres</h2>
 
   <ul>
-    {% for member in listMembers %}
+    {% for member in listmembers %}
       <li>
-        <a href="{{ path('sp_member_list', {'id': member.id}) }}">
-          {{ member.firstname}}
+        <a href="{{ path('sp_member_view', {'id': member.id}) }}">
+          {{ member.usrfirstname}} {{member.usrlastname}}
         </a>
       </li>
 
