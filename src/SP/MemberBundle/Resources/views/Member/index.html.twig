@@ -13,14 +13,14 @@
   <ul>
     {% for member in listMembers %}
       <li>
-        <a href="{{ path('sp_member_view', {'id': member.id}) }}">
+        <a href="{{ path('sp_member_list', {'id': member.id}) }}">
           {{ member.firstname}}
         </a>
       </li>
 
     {% else %}
 
-      <li>Pas (encore !) de membres</li>
+      <li>Pas (encore !!!) de membres</li>
 
     {% endfor %}
 

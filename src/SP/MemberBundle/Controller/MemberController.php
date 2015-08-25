@@ -70,20 +70,6 @@ class MemberController extends Controller
     return $this->render('SPMemberBundle:Member:delete.html.twig');
     }
 
-    public function memberListAction()
-    {
-        // On fixe en dur une liste ici, bien entendu par la suite
-    // on la récupérera depuis la BDD !
-    $listMember = array(
-      array('id' => 2, 'usr_firstname' => 'McCartney'),
-      array('id' => 5, 'usr_firstname' => 'Star'),
-      array('id' => 9, 'usr_firstname' => 'Harrison')
-    );
 
-    return $this->render('SPMemberBundle:Member:memberList.html.twig', array(
-      // Tout l'intérêt est ici : le contrôleur passe
-      // les variables nécessaires au template !
-      'listMembers' => $listMember));
-    }
 
 }
