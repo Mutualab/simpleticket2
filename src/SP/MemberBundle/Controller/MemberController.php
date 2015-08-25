@@ -7,6 +7,10 @@ use Symfony\Component\HttpFoundation\Response;
 // service templating
 use Symfony\Component\HttpFoundation\Request;
 
+use SP\MemberBundle\Form\Type\DeskType;
+use SP\MemberBundle\Entity\Desk;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 class MemberController extends Controller
 {
     public function indexAction()
@@ -17,8 +21,11 @@ class MemberController extends Controller
     public function viewAction($id)
     {
         // Ici, on récupérera la fiche correspondante à l'id $id
+        $member = $this->getDoctrine()
+        ->getRepository('MemberBundle:member')
+        ->find($id);
 
-         return $this->render('SPMemberBundle:Member:view.html.twig',array('id'=> $id));
+         return $this->render('SPMemberBundle:Member:view.html.twig',array('member'=> $member));
     }
 
     public function addAction(Request $request)
@@ -28,6 +35,14 @@ class MemberController extends Controller
     if ($request->isMethod('POST')) {
 
       // Ici, on s'occupera de la création et de la gestion du formulaire
+        $member = new Member();
+        $member-> setUsrFirstname('John');
+
+
+
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($product);
+        $em->flush();
 
       $request->getSession()->getFlashBag()->add('notice','Fiche bien enregistrée.');
 
