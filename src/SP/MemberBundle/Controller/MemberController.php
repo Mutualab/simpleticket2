@@ -22,8 +22,9 @@ class MemberController extends Controller
     {
         // Ici, on récupérera la fiche correspondante à l'id $id
         $member = $this->getDoctrine()
-        ->getRepository('MemberBundle:member')
+        ->getRepository('SPMemberBundle:Member')
         ->find($id);
+
 
          return $this->render('SPMemberBundle:Member:view.html.twig',array('member'=> $member));
     }
