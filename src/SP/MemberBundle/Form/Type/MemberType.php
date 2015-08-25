@@ -11,9 +11,9 @@ class DeskType extends AbstractType
     public function buildForm(FormBuilder $builder, array $options)
     {
         $builder
-            ->add('firstname')
-            ->add('lastname')
-            ->add('mailadress');
+            ->add('firstname','text', array('max_length' => 128, 'required' => true,))
+            ->add('lastname','text', array('max_length' => 128, 'required' => true,))
+            ->add('mailadress','email',array('max_length' => 128, 'required' => true,));
     }
 
     public function getDefaultOptions(array $options)
