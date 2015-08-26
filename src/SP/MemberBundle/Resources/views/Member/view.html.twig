@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Affichage de l'annonce {{ member.id }}</title>
-  </head>
+{% extends "SPMemberBundle::layout.html.twig" %}
 
-   <body>
-    <h1>Affichage d'une annonce</h1>
+
+   {% block spmember_body %}
+    <h1>Fiche adherent</h1>
     <p>
       {# On affiche tous les messages flash dont le nom est « info » #}
       {% for message in app.session.flashbag.get('info') %}
@@ -13,14 +10,40 @@
       {% endfor %}
     </p>
 
-    <p>
-    Adherent Numero: {{ member.id }}<br />
-    Nom complet: {{member.usrlastname }} {{member.usrfirstname}}<br />
+    <table >
+    <tr>
+        <td>Adherent Numero:</td>
+        <td>{{ member.id }}</td>
+    </tr>
 
-    </p>
+    <tr>
+       <td>Nom complet:</td>
+       <td> {{member.usrlastname }} {{member.usrfirstname}}</td>
+    </tr>
 
-  </body>
-</html>
+      <tr>
+       <td>Date de naissance:</td>
+       <td>{{member.usrbirthdate|date('d/m/Y')}}</td>
+    </tr>
+
+    <tr>
+        <td>{{member.usrjobtype}}</td>
+        <td>{{member.usrjobtitle}}</td>
+    </tr>
+
+     <tr>
+       <td>Adresse mail:</td>
+       <td>{{member.usrmail}}</td>
+    </tr>
+
+      <tr>
+       <td>Site web:</td>
+       <td>{{member.usrwebsite}}</td>
+    </tr>
+    </table><br>
+    <pre>Creation {{member.usrdcre|date('d/m/Y')}} by {{member.usrucre}}</pre>
+    <a href>Mettre à jour </a>
+    {% endblock %}
 
 
 
