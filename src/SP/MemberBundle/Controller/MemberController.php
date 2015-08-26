@@ -7,8 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 // service templating
 use Symfony\Component\HttpFoundation\Request;
 
-use SP\MemberBundle\Form\Type\DeskType;
-use SP\MemberBundle\Entity\Desk;
+use SP\MemberBundle\Form\Type\MemberType;
+use SP\MemberBundle\Entity\Member;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class MemberController extends Controller
@@ -34,34 +34,20 @@ class MemberController extends Controller
          return $this->render('SPMemberBundle:Member:view.html.twig',array('member'=> $member));
     }
 
-    public function addAction(Request $request)
+    public function addAction()
     {
-     // Si la requête est en POST, c'est que le visiteur a soumis le formulaire
-
-    if ($request->isMethod('POST')) {
-
-      // Ici, on s'occupera de la création et de la gestion du formulaire
+      // Ici, on s'occupe de la création et de la gestion du formulaire
         $member = new Member();
-        $member-> setUsrFirstname('John');
+        //$member-> setUsrFirstname('John');
 
+        $form = $this->createFormBuilder($member)->add('usrFirstname', 'text')
+            ->add('usrLastname', 'text')
+            ->add('save', 'submit')
+            ->getForm();
 
+        return $this->render('SPMemberBundle:Member:add.html.twig', array(          'test'=>$form->createView(),
+        ));
 
-        $em = $this->getDoctrine()->getManager();
-        $em->persist($product);
-        $em->flush();
-
-      $request->getSession()->getFlashBag()->add('notice','Fiche bien enregistrée.');
-
-      // Puis on redirige vers la page de visualisation de cette fiche
-
-      return $this->redirect($this->generateUrl('sp_member_view', array('id' => 5)));
-
-    }
-
-
-    // Si on n'est pas en POST, alors on affiche le formulaire
-
-    return $this->render('SPMemberBundle:Member:add.html.twig');
     }
 
     public function editAction($id, Request $request)
@@ -90,7 +76,5 @@ class MemberController extends Controller
 
     return $this->render('SPMemberBundle:Member:delete.html.twig');
     }
-
-
 
 }

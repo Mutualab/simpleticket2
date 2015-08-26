@@ -419,9 +419,9 @@ class Member
         return $this->usrUupd;
     }
 
-    public function __construct()
+    /*public function __construct()
     {
         parent::__construct();
         // your own logic
-    }
+    }*/
 }
