@@ -35,7 +35,7 @@ class Member
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_mail", type="string", length=128)
+     * @ORM\Column(name="usr_mail", type="string", length=128,nullable=true)
      */
     private $usrMail;
 
@@ -49,35 +49,35 @@ class Member
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_website", type="string", length=128)
+     * @ORM\Column(name="usr_website", type="string", length=128,nullable=true)
      */
     private $usrWebsite;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_mobile", type="string", length=16)
+     * @ORM\Column(name="usr_mobile", type="string", length=16,nullable=true)
      */
     private $usrMobile;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_job_type", type="string", length=64)
+     * @ORM\Column(name="usr_job_type", type="string", length=64,nullable=true)
      */
     private $usrJobType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_job_title", type="string", length=64)
+     * @ORM\Column(name="usr_job_title", type="string", length=64,nullable=true)
      */
     private $usrJobTitle;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_state", type="string", length=24)
+     * @ORM\Column(name="usr_state", type="string", length=24,nullable=true)
      */
     private $usrState;
 
@@ -105,7 +105,7 @@ class Member
         /**
      * @var string
      *
-     * @ORM\Column(name="usr_uupd", type="string", length=20)
+     * @ORM\Column(name="usr_uupd", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
     private $usrUupd;
 
