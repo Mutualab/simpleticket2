@@ -84,7 +84,7 @@ class Member
      /**
      * @var \DateTime
      *
-     * @ORM\Column(name="usr_cre", type="date")
+     * @ORM\Column(name="usr_dcre", type="date")
      */
     private $usrDcre;
 
