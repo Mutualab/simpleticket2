@@ -34,18 +34,29 @@ class MemberController extends Controller
          return $this->render('SPMemberBundle:Member:view.html.twig',array('member'=> $member));
     }
 
-    public function addAction()
+    public function addAction(Request $request)
     {
       // Ici, on s'occupe de la création et de la gestion du formulaire
         $member = new Member();
-        //$member-> setUsrFirstname('John');
 
-        $form = $this->createFormBuilder($member)->add('usrFirstname', 'text')
-            ->add('usrLastname', 'text')
+        $form = $this->createFormBuilder($member)
+            ->add('usrFirstname', 'text',array('required'=>true, 'max_length'=>64))
+            ->add('usrLastname', 'text',array('required'=>true, 'max_length'=>64))
+            ->add('usrMail', 'email',array('required'=>true, 'max_length'=>128))
             ->add('save', 'submit')
             ->getForm();
 
-        return $this->render('SPMemberBundle:Member:add.html.twig', array(          'test'=>$form->createView(),
+         $form->handleRequest($request);
+
+    if ($form->isValid()) {
+        // sauvegarde le membre dans la bdd
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($member);
+        $em->flush();
+
+        return $this->redirect($this->generateUrl('sp_member_view'));
+    }
+        return $this->render('SPMemberBundle:Member:add.html.twig', array(          'form'=>$form->createView(),
         ));
 
     }
