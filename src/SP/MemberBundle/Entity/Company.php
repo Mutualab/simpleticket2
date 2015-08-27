@@ -2,6 +2,7 @@
 
 namespace SP\MemberBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -28,6 +29,14 @@ class Company
      */
     private $cpyName;
 
+     /**
+     * @ORM\ManyToMany(targetEntity="Member", mappedBy="companies")
+     **/
+    private $members;
+
+    public function __construct() {
+        $this->members = new ArrayCollection();
+    }
 
     /**
      * Get id

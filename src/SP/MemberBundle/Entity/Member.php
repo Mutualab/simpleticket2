@@ -3,6 +3,7 @@
 namespace SP\MemberBundle\Entity;
 
 //use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -109,6 +110,19 @@ class Member
      */
     private $usrUupd = 'developper';
 
+    /**
+     * @ORM\ManyToMany(targetEntity="Company", inversedBy="members")
+     * @ORM\JoinTable(name="members_companies")
+     **/
+    private $companies;
+
+    public function __construct()
+    {
+        // Par défaut, la date de creation et de modification est la date d'aujourd'hui
+        $this->usrDcre = new \Datetime();
+        $this->usrDupd = new \Datetime();
+        $this->companies = new ArrayCollection();
+   }
 
     /**
      * Get id
@@ -419,10 +433,5 @@ class Member
         return $this->usrUupd;
     }
 
-   public function __construct()
-    {
-    // Par défaut, la date de creation et de modification est la date d'aujourd'hui
-    $this->usrDcre = new \Datetime();
-    $this->usrDupd = new \Datetime();
-  }
+
 }
