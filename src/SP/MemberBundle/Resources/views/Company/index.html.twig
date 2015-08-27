@@ -1,0 +1,30 @@
+{% extends "SPMemberBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+
+{% endblock %}
+
+{% block spcompany_body %}
+
+
+  <h2>Liste des entites</h2>
+
+  <ul>
+    {% for company in listcompanies %}
+      <li>
+        <a href="{{ path('sp_company_view', {'id': company.id}) }}">
+          {{ company.cpyname}}
+        </a>
+      </li>
+
+    {% else %}
+
+      <li>Pas (encore !!!) d'entites</li>
+
+    {% endfor %}
+
+  </ul>
+
+
+{% endblock %}
