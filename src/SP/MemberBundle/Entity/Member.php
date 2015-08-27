@@ -79,35 +79,35 @@ class Member
      *
      * @ORM\Column(name="usr_state", type="string", length=24,options={"unsigned":true, "default":"Active"})
      */
-    private $usrState;
+    private $usrState = 'Active';
 
      /**
      * @var \DateTime
      *
      * @ORM\Column(name="usr_dcre", type="date")
      */
-    private $usrDcre;
+    private $usrDcre = date(Y/m/d);
 
     /**
      * @var string
      *
      * @ORM\Column(name="usr_ucre", type="string", length=20, options={"unsigned":true, "default":"Developper"})
      */
-    private $usrUcre;
+    private $usrUcre = 'Developper';
 
        /**
      * @var \DateTime
      *
      * @ORM\Column(name="usr_dupd", type="date")
      */
-    private $usrDupd;
+    private $usrDupd = date(Y/m/d);
 
         /**
      * @var string
      *
      * @ORM\Column(name="usr_uupd", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
-    private $usrUupd;
+    private $usrUupd = 'developper';
 
 
     /**
@@ -419,9 +419,9 @@ class Member
         return $this->usrUupd;
     }
 
-    /*public function __construct()
+    public function __construct()
     {
-        parent::__construct();
-        // your own logic
-    }*/
+
+
+    }
 }
