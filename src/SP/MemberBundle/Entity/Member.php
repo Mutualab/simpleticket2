@@ -86,7 +86,7 @@ class Member
      *
      * @ORM\Column(name="usr_dcre", type="date")
      */
-    private $usrDcre = date(Y/m/d);
+    private $usrDcre;
 
     /**
      * @var string
@@ -100,7 +100,7 @@ class Member
      *
      * @ORM\Column(name="usr_dupd", type="date")
      */
-    private $usrDupd = date(Y/m/d);
+    private $usrDupd;
 
         /**
      * @var string
@@ -419,9 +419,10 @@ class Member
         return $this->usrUupd;
     }
 
-    public function __construct()
+   public function __construct()
     {
-
-
-    }
+    // Par défaut, la date de creation et de modification est la date d'aujourd'hui
+    $this->usrDcre = new \Datetime();
+    $this->usrDupd = new \Datetime();
+  }
 }

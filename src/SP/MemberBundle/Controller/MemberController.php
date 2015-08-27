@@ -59,7 +59,7 @@ class MemberController extends Controller
         $em->persist($member);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('sp_member_view'));
+        return $this->redirect($this->generateUrl('sp_member_view',array('id'=>$member->getId())));
     }
         return $this->render('SPMemberBundle:Member:add.html.twig', array(          'form'=>$form->createView(),
         ));
