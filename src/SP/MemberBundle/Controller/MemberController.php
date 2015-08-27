@@ -48,6 +48,11 @@ class MemberController extends Controller
             ->add('usrMobile', 'text',array('max_length'=>16))
             ->add('usrJobType', 'text',array('max_length'=>64))
             ->add('usrJobTitle', 'text',array('max_length'=>64))
+            ->add('companies','entity',array(
+                'class'=>'SPMemberBundle:Company',
+                'choice_label'=>'cpyName',
+                'multiple'=>true
+            ))
             ->add('save', 'submit')
             ->getForm();
 
