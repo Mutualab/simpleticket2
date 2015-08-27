@@ -43,6 +43,11 @@ class MemberController extends Controller
             ->add('usrFirstname', 'text',array('required'=>true, 'max_length'=>64))
             ->add('usrLastname', 'text',array('required'=>true, 'max_length'=>64))
             ->add('usrMail', 'email',array('required'=>true, 'max_length'=>128))
+            ->add('usrBirthdate', 'birthday', array('widget'=>'choice'))
+            ->add('usrWebsite', 'text',array('max_length'=>128))
+            ->add('usrMobile', 'text',array('max_length'=>16))
+            ->add('usrJobType', 'text',array('max_length'=>64))
+            ->add('usrJobTitle', 'text',array('max_length'=>64))
             ->add('save', 'submit')
             ->getForm();
 
