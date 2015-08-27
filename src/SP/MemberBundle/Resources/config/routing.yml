@@ -1,25 +1,52 @@
 sp_member_homepage:
-    pattern:  /
+    pattern:  /member/
     defaults: { _controller:SPMemberBundle:Member:index }
 
 sp_member_view:
-    pattern:  /{id}
+    pattern:  /member/{id}
     defaults: { _controller:SPMemberBundle:Member:view }
     requirements:
         id: \d+
 
 sp_member_add:
-    pattern:  /add
+    pattern:  /member/add
     defaults: { _controller:SPMemberBundle:Member:add }
 
 sp_member_edit:
-    pattern:  /edit/{id}
+    pattern:  /member/edit/{id}
     defaults: { _controller:SPMemberBundle:Member:edit }
     requirements:
         id: \d+
 
 sp_member_delete:
-    pattern:  /delete/{id}
+    pattern:  /member/delete/{id}
     defaults: { _controller:SPMemberBundle:Member:delete }
     requirements:
         id: \d+
+
+sp_company_homepage:
+    pattern:  /company/
+    defaults: { _controller:SPMemberBundle:Company:index }
+
+sp_company_view:
+    pattern:  /company/{id}
+    defaults: { _controller:SPMemberBundle:Company:view }
+    requirements:
+        id: \d+
+
+sp_company_add:
+    pattern:  /company/add
+    defaults: { _controller:SPMemberBundle:Company:add }
+
+sp_company_edit:
+    pattern:  /company/edit/{id}
+    defaults: { _controller:SPMemberBundle:Company:edit }
+    requirements:
+        id: \d+
+
+sp_company_delete:
+    pattern:  /company/delete/{id}
+    defaults: { _controller:SPMemberBundle:Company:delete }
+    requirements:
+        id: \d+
+

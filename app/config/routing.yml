@@ -1,6 +1,6 @@
 sp_member:
     resource: "@SPMemberBundle/Resources/config/routing.yml"
-    prefix:   /member
+
 
 app:
     resource: "@AppBundle/Controller/"
