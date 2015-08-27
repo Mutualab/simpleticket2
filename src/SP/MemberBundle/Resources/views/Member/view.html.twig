@@ -18,27 +18,27 @@
 
     <tr>
        <td>Nom complet:</td>
-       <td> {{member.usrlastname }} {{member.usrfirstname}}</td>
+       <td> {{member.mbrlastname }} {{member.mbrfirstname}}</td>
     </tr>
 
       <tr>
        <td>Date de naissance:</td>
-       <td>{{member.usrbirthdate|date('d/m/Y')}}</td>
+       <td>{{member.mbrbirthdate|date('d/m/Y')}}</td>
     </tr>
 
     <tr>
-        <td>{{member.usrjobtype}}</td>
-        <td>{{member.usrjobtitle}}</td>
+        <td>{{member.mbrjobtype}}</td>
+        <td>{{member.mbrjobtitle}}</td>
     </tr>
 
      <tr>
        <td>Adresse mail:</td>
-       <td>{{member.usrmail}}</td>
+       <td>{{member.mbrmail}}</td>
     </tr>
 
       <tr>
        <td>Site web:</td>
-       <td>{{member.usrwebsite}}</td>
+       <td>{{member.mbrwebsite}}</td>
     </tr>
     <tr>
         <td>Entites</td>
@@ -52,9 +52,6 @@
     </tr>
 
     </table><br>
-    <pre>Creation {{member.usrdcre|date('d/m/Y')}} by {{member.usrucre}}</pre>
+    <pre>Creation {{member.mbrdcre|date('d/m/Y')}} by {{member.mbrucre}}</pre>
     <a href>Mettre à jour </a>
     {% endblock %}
-
-
-
