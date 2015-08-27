@@ -14,12 +14,12 @@ class CompanyController extends Controller
 {
     public function indexAction()
     {
-       $listcompamies = $this->getDoctrine()
+       $listcompanies = $this->getDoctrine()
         ->getRepository('SPMemberBundle:Company')
         ->findAll();
 
 
-         return $this->render('SPMemberBundle:Company:index.html.twig',array('listcompamies'=> $listcompamies));
+         return $this->render('SPMemberBundle:Company:index.html.twig',array('listcompanies'=> $listcompanies));
     }
 
     public function viewAction($id)
