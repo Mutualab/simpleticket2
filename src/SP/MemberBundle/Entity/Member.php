@@ -2,7 +2,6 @@
 
 namespace SP\MemberBundle\Entity;
 
-//use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
