@@ -1,6 +1,6 @@
 <?php
 
-namespace SP\MemberBundle\Entity;
+namespace SP\MemberBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
