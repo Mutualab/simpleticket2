@@ -139,7 +139,7 @@ class Member
      * @param string $usrFirstname
      * @return user
      */
-    public function setUsrFirstname($mbrFirstname)
+    public function setMbrFirstname($mbrFirstname)
     {
         $this->mbrFirstname = $mbrFirstname;
 
