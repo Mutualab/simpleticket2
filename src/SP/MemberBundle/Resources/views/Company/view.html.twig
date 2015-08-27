@@ -1,0 +1,32 @@
+{% extends "SPMemberBundle::layout.html.twig" %}
+
+
+   {% block spcompany_body %}
+    <h1>Fiche adherent</h1>
+    <p>
+      {# On affiche tous les messages flash dont le nom est « info » #}
+      {% for message in app.session.flashbag.get('info') %}
+        <p>Message flash : {{ message }}</p>
+      {% endfor %}
+    </p>
+
+    <table >
+    <tr>
+        <td>Entite Numero:</td>
+        <td>{{ company.id }}</td>
+    </tr>
+
+    <tr>
+       <td>Nom complet:</td>
+       <td> {{company.cpyname }}</td>
+    </tr>
+
+
+
+    </table><br>
+    <pre>Creation {{company.cpydcre|date('d/m/Y')}} by {{company.cpyucre}}</pre>
+    <a href>Mettre à jour </a>
+    {% endblock %}
+
+
+

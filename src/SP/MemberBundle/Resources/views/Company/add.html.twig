@@ -1,0 +1,17 @@
+{% extends "SPMemberBundle::layout.html.twig" %}
+
+{% block body %}
+
+  <h2>Ajouter une entite</h2>
+
+  {{ include("SPMemberBundle:Company:form.html.twig") }}
+
+  <p>
+
+    Attention : cette fiche sera ajoutée directement
+    sur la page d'accueil après validation du formulaire.
+
+  </p>
+
+
+{% endblock %}
