@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="user")
+ * @ORM\Table(name="member")
  */
 class Member
 {
@@ -21,93 +21,93 @@ class Member
         /**
      * @var string
      *
-     * @ORM\Column(name="usr_firstname", type="string", length=64)
+     * @ORM\Column(name="mbr_firstname", type="string", length=64)
      */
-    private $usrFirstname;
+    private $mbrFirstname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_lastname", type="string", length=64)
+     * @ORM\Column(name="mbr_lastname", type="string", length=64)
      */
-    private $usrLastname;
+    private $mbrLastname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_mail", type="string", length=128,nullable=true)
+     * @ORM\Column(name="mbr_mail", type="string", length=128,nullable=true)
      */
-    private $usrMail;
+    private $mbrMail;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="usr_birthdate", type="date")
+     * @ORM\Column(name="mbr_birthdate", type="date")
      */
-    private $usrBirthdate;
+    private $mbrBirthdate;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_website", type="string", length=128,nullable=true)
+     * @ORM\Column(name="mbr_website", type="string", length=128,nullable=true)
      */
-    private $usrWebsite;
+    private $mbrWebsite;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_mobile", type="string", length=16,nullable=true)
+     * @ORM\Column(name="mbr_mobile", type="string", length=16,nullable=true)
      */
-    private $usrMobile;
+    private $mbrMobile;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_job_type", type="string", length=64,nullable=true)
+     * @ORM\Column(name="mbr_job_type", type="string", length=64,nullable=true)
      */
-    private $usrJobType;
+    private $mbrJobType;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_job_title", type="string", length=64,nullable=true)
+     * @ORM\Column(name="mbr_job_title", type="string", length=64,nullable=true)
      */
-    private $usrJobTitle;
+    private $mbrJobTitle;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_state", type="string", length=24,options={"unsigned":true, "default":"Active"})
+     * @ORM\Column(name="mbr_state", type="string", length=24,options={"unsigned":true, "default":"Active"})
      */
-    private $usrState = 'Active';
+    private $mbrState = 'Active';
 
      /**
      * @var \DateTime
      *
-     * @ORM\Column(name="usr_dcre", type="date")
+     * @ORM\Column(name="mbr_dcre", type="date")
      */
-    private $usrDcre;
+    private $mbrDcre;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_ucre", type="string", length=20, options={"unsigned":true, "default":"Developper"})
+     * @ORM\Column(name="mbr_ucre", type="string", length=20, options={"unsigned":true, "default":"Developper"})
      */
-    private $usrUcre = 'Developper';
+    private $mbrUcre = 'Developper';
 
        /**
      * @var \DateTime
      *
-     * @ORM\Column(name="usr_dupd", type="date")
+     * @ORM\Column(name="mbr_dupd", type="date")
      */
-    private $usrDupd;
+    private $mbrDupd;
 
         /**
      * @var string
      *
-     * @ORM\Column(name="usr_uupd", type="string", length=20,options={"unsigned":true, "default":"Developper"})
+     * @ORM\Column(name="mbr_uupd", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
-    private $usrUupd = 'developper';
+    private $mbrUupd = 'Developper';
 
     /**
      * @ORM\ManyToMany(targetEntity="Company", inversedBy="members")
@@ -118,8 +118,8 @@ class Member
     public function __construct()
     {
         // Par défaut, la date de creation et de modification est la date d'aujourd'hui
-        $this->usrDcre = new \Datetime();
-        $this->usrDupd = new \Datetime();
+        $this->mbrDcre = new \Datetime();
+        $this->mbrDupd = new \Datetime();
         $this->companies = new ArrayCollection();
    }
 
@@ -139,9 +139,9 @@ class Member
      * @param string $usrFirstname
      * @return user
      */
-    public function setUsrFirstname($usrFirstname)
+    public function setUsrFirstname($mbrFirstname)
     {
-        $this->usrFirstname = $usrFirstname;
+        $this->mbrFirstname = $mbrFirstname;
 
         return $this;
     }
@@ -151,285 +151,285 @@ class Member
      *
      * @return string
      */
-    public function getUsrFirstname()
+    public function getMbrFirstname()
     {
-        return $this->usrFirstname;
+        return $this->mbrFirstname;
     }
 
     /**
-     * Set usrLastname
+     * Set mbrLastname
      *
-     * @param string $usrLastname
-     * @return user
+     * @param string $mbrLastname
+     * @return member
      */
-    public function setUsrLastname($usrLastname)
+    public function setMbrLastname($mbrLastname)
     {
-        $this->usrLastname = $usrLastname;
+        $this->mbrLastname = $mbrLastname;
 
         return $this;
     }
 
     /**
-     * Get usrLastname
+     * Get mbrLastname
      *
      * @return string
      */
-    public function getUsrLastname()
+    public function getMbrLastname()
     {
-        return $this->usrLastname;
+        return $this->mbrLastname;
     }
 
     /**
-     * Set usrMail
+     * Set mbrMail
      *
-     * @param string $usrMail
-     * @return user
+     * @param string $mbrMail
+     * @return member
      */
-    public function setUsrMail($usrMail)
+    public function setMbrMail($mbrMail)
     {
-        $this->usrMail = $usrMail;
+        $this->mbrMail = $mbrMail;
 
         return $this;
     }
 
     /**
-     * Get usrMail
+     * Get mbrMail
      *
      * @return string
      */
-    public function getUsrMail()
+    public function getMbrMail()
     {
-        return $this->usrMail;
+        return $this->mbrMail;
     }
 
     /**
-     * Set usrBirthdate
+     * Set mbrBirthdate
      *
-     * @param \DateTime $usrBirthdate
-     * @return user
+     * @param \DateTime $mbrBirthdate
+     * @return member
      */
-    public function setUsrBirthdate($usrBirthdate)
+    public function setMbrBirthdate($mbrBirthdate)
     {
-        $this->usrBirthdate = $usrBirthdate;
+        $this->mbrBirthdate = $mbrBirthdate;
 
         return $this;
     }
 
     /**
-     * Get usrBirthdate
+     * Get mbrBirthdate
      *
      * @return \DateTime
      */
-    public function getUsrBirthdate()
+    public function getMbrBirthdate()
     {
-        return $this->usrBirthdate;
+        return $this->mbrBirthdate;
     }
 
     /**
-     * Set usrWebsite
+     * Set mbrWebsite
      *
-     * @param string $usrWebsite
-     * @return user
+     * @param string $mbrWebsite
+     * @return member
      */
-    public function setUsrWebsite($usrWebsite)
+    public function setMbrWebsite($mbrWebsite)
     {
-        $this->usrWebsite = $usrWebsite;
+        $this->mbrWebsite = $mbrWebsite;
 
         return $this;
     }
 
     /**
-     * Get usrWebsite
+     * Get mbrWebsite
      *
      * @return string
      */
-    public function getUsrWebsite()
+    public function getMbrWebsite()
     {
-        return $this->usrWebsite;
+        return $this->mbrWebsite;
     }
 
     /**
-     * Set usrMobile
+     * Set mbrMobile
      *
-     * @param string $usrMobile
-     * @return user
+     * @param string $mbrMobile
+     * @return member
      */
-    public function setUsrMobile($usrMobile)
+    public function setMbrMobile($mbrMobile)
     {
-        $this->usrMobile = $usrMobile;
+        $this->mbrMobile = $mbrMobile;
 
         return $this;
     }
 
     /**
-     * Get usrMobile
+     * Get mbrMobile
      *
      * @return string
      */
-    public function getUsrMobile()
+    public function getMbrMobile()
     {
-        return $this->usrMobile;
+        return $this->mbrMobile;
     }
 
     /**
-     * Set usrJobType
+     * Set mbrJobType
      *
-     * @param string $usrJobType
-     * @return user
+     * @param string $mbrJobType
+     * @return member
      */
-    public function setUsrJobType($usrJobType)
+    public function setMbrJobType($mbrJobType)
     {
-        $this->usrJobType = $usrJobType;
+        $this->mbrJobType = $mbrJobType;
 
         return $this;
     }
 
     /**
-     * Get usrJobType
+     * Get mbrJobType
      *
      * @return string
      */
-    public function getUsrJobType()
+    public function getMbrJobType()
     {
-        return $this->usrJobType;
+        return $this->mbrJobType;
     }
 
     /**
-     * Set usrJobTitle
+     * Set mbrJobTitle
      *
-     * @param string $usrJobTitle
-     * @return user
+     * @param string $mbrJobTitle
+     * @return member
      */
-    public function setUsrJobTitle($usrJobTitle)
+    public function setMbrJobTitle($mbrJobTitle)
     {
-        $this->usrJobTitle = $usrJobTitle;
+        $this->mbrJobTitle = $mbrJobTitle;
 
         return $this;
     }
 
     /**
-     * Get usrJobTitle
+     * Get mbrJobTitle
      *
      * @return string
      */
-    public function getUsrJobTitle()
+    public function getMbrJobTitle()
     {
-        return $this->usrJobTitle;
+        return $this->mbrJobTitle;
     }
 
     /**
-     * Set usrState
+     * Set mbrState
      *
-     * @param string $usrState
-     * @return user
+     * @param string $mbrState
+     * @return member
      */
-    public function setUsrState($usrState)
+    public function setMbrState($mbrState)
     {
-        $this->usrState = $usrState;
+        $this->mbrState = $mbrState;
 
         return $this;
     }
 
     /**
-     * Get usrState
+     * Get mbrState
      *
      * @return string
      */
-    public function getUsrState()
+    public function getMbrState()
     {
-        return $this->usrState;
+        return $this->mbrState;
     }
 
     /**
-     * Set usrDcre
+     * Set mbrDcre
      *
-     * @param \DateTime $usrDcre
-     * @return User
+     * @param \DateTime $mbrDcre
+     * @return Member
      */
-    public function setUsrDcre($usrDcre)
+    public function setMbrDcre($mbrDcre)
     {
-        $this->usrDcre = $usrDcre;
+        $this->mbrDcre = $mbrDcre;
 
         return $this;
     }
 
     /**
-     * Get usrDcre
+     * Get mbrDcre
      *
      * @return \DateTime
      */
-    public function getUsrDcre()
+    public function getMbrDcre()
     {
-        return $this->usrDcre;
+        return $this->mbrDcre;
     }
 
     /**
-     * Set usrUcre
+     * Set mbrUcre
      *
-     * @param string $usrUcre
-     * @return User
+     * @param string $mbrUcre
+     * @return Member
      */
-    public function setUsrUcre($usrUcre)
+    public function setMbrUcre($mbrUcre)
     {
-        $this->usrUcre = $usrUcre;
+        $this->mbrUcre = $mbrUcre;
 
         return $this;
     }
 
     /**
-     * Get usrUcre
+     * Get mbrUcre
      *
      * @return string
      */
-    public function getUsrUcre()
+    public function getMbrUcre()
     {
-        return $this->usrUcre;
+        return $this->mbrUcre;
     }
 
     /**
-     * Set usrDupd
+     * Set mbrDupd
      *
-     * @param \DateTime $usrDupd
-     * @return User
+     * @param \DateTime $mbrDupd
+     * @return Member
      */
-    public function setUsrDupd($usrDupd)
+    public function setMbrDupd($mbrDupd)
     {
-        $this->usrDupd = $usrDupd;
+        $this->mbrDupd = $mbrDupd;
 
         return $this;
     }
 
     /**
-     * Get usrDupd
+     * Get mbrDupd
      *
      * @return \DateTime
      */
-    public function getUsrDupd()
+    public function getMbrDupd()
     {
-        return $this->usrDupd;
+        return $this->mbrDupd;
     }
 
     /**
-     * Set usrUupd
+     * Set mbrUupd
      *
-     * @param string $usrUupd
-     * @return User
+     * @param string $mbrUupd
+     * @return Member
      */
-    public function setUsrUupd($usrUupd)
+    public function setMbrUupd($mbrUupd)
     {
-        $this->usrUupd = $usrUupd;
+        $this->mbrUupd = $mbrUupd;
 
         return $this;
     }
 
     /**
-     * Get usrUupd
+     * Get mbrUupd
      *
      * @return string
      */
-    public function getUsrUupd()
+    public function getMbrUupd()
     {
-        return $this->usrUupd;
+        return $this->mbrUupd;
     }
 
     public function getCompanies()
