@@ -433,5 +433,23 @@ class Member
         return $this->usrUupd;
     }
 
+    public function getCompanies()
+    {
+        return $this->companies;
+    }
 
+    public function addCompany(Company $company)
+    {
+     //insere comme dans un tableau
+        $this->companies[] = $company;
+    }
+
+    public function setCompanies($companies)
+    {
+        $this->companies = new ArrayCollection();
+
+        foreach ($companies as $company) {
+            $this->addComapny($company);
+        }
+    }
 }
