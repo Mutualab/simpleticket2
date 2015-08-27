@@ -40,6 +40,17 @@
        <td>Site web:</td>
        <td>{{member.usrwebsite}}</td>
     </tr>
+    <tr>
+        <td>Entites</td>
+        <td>
+        <ul>
+            {% for company in member.companies %}
+                <li>{{ company.cpyName }}</li>
+            {% endfor %}
+</ul>
+        </td>
+    </tr>
+
     </table><br>
     <pre>Creation {{member.usrdcre|date('d/m/Y')}} by {{member.usrucre}}</pre>
     <a href>Mettre à jour </a>
