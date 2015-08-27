@@ -40,14 +40,14 @@ class MemberController extends Controller
         $member = new Member();
 
         $form = $this->createFormBuilder($member)
-            ->add('usrFirstname', 'text',array('required'=>true, 'max_length'=>64))
-            ->add('usrLastname', 'text',array('required'=>true, 'max_length'=>64))
-            ->add('usrMail', 'email',array('required'=>true, 'max_length'=>128))
-            ->add('usrBirthdate', 'birthday', array('widget'=>'choice'))
-            ->add('usrWebsite', 'text',array('max_length'=>128))
-            ->add('usrMobile', 'text',array('max_length'=>16))
-            ->add('usrJobType', 'text',array('max_length'=>64))
-            ->add('usrJobTitle', 'text',array('max_length'=>64))
+            ->add('mbrFirstname', 'text',array('required'=>true, 'max_length'=>64))
+            ->add('mbrLastname', 'text',array('required'=>true, 'max_length'=>64))
+            ->add('mbrMail', 'email',array('required'=>true, 'max_length'=>128))
+            ->add('mbrBirthdate', 'birthday', array('widget'=>'choice'))
+            ->add('mbrWebsite', 'text',array('max_length'=>128))
+            ->add('mbrMobile', 'text',array('max_length'=>16))
+            ->add('mbrJobType', 'text',array('max_length'=>64))
+            ->add('mbrJobTitle', 'text',array('max_length'=>64))
             ->add('companies','entity',array(
                 'class'=>'SPMemberBundle:Company',
                 'choice_label'=>'cpyName',
