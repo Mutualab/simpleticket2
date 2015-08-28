@@ -134,10 +134,10 @@ class Member
     }
 
     /**
-     * Set mbrFirstname
+     * Set usrFirstname
      *
-     * @param string $mbrFirstname
-     * @return member
+     * @param string $usrFirstname
+     * @return user
      */
     public function setMbrFirstname($mbrFirstname)
     {
@@ -147,7 +147,7 @@ class Member
     }
 
     /**
-     * Get mbrFirstname
+     * Get usrFirstname
      *
      * @return string
      */
