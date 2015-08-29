@@ -61,18 +61,37 @@ class CompanyController extends Controller
     public function editAction($id, Request $request)
     {
          // Ici, on récupérera la fiche correspondante à $id
+        $company = $this->getDoctrine()
+        ->getRepository('SPMemberBundle:Company')
+        ->find($id);
+
+         $form = $this->createFormBuilder($company)
+            ->add('cpyName', 'text',array('required'=>true, 'max_length'=>64))
+            ->add('save', 'submit')
+            ->getForm();
+
+             $form->handleRequest($request);
 
 
+        if ($form->isValid()) {
+        // sauvegarde la compagnie dans la bdd
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($company);
+        $em->flush();
+
+
+    }
     // Même mécanisme que pour l'ajout
 
-    if ($request->isMethod('POST')) {$request->getSession()->getFlashBag()->add('notice','Fiche bien modifiée.');
+    if ($request->isMethod('POST')) {
+        $request->getSession()->getFlashBag()->add('notice','Fiche bien modifiée.');
 
-      return $this->redirect($this->generateUrl('sp_company_view', array('id'=>5)));
+        return $this->redirect($this->generateUrl('sp_company_view',array('id'=>$company->getId())));
 
     }
 
-
-    return $this->render('SPMemberBundle:Company:edit.html.twig');
+   return $this->render('SPMemberBundle:Company:edit.html.twig', array(          'form'=>$form->createView(),'company'=> $company
+        ));
     }
 
     public function deleteAction($id)
