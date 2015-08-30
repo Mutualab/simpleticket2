@@ -21,9 +21,46 @@
        <td> {{company.cpyname }}</td>
     </tr>
 
+    <tr>
+       <td>Forme Legale:</td>
+       <td> {{company.cpylegalform }}</td>
+    </tr>
+
+    <tr>
+       <td>Site Web:</td>
+       <td> {{company.cpywebsite }}</td>
+    </tr>
+
+    <tr>
+       <td>Numero Siren:</td>
+       <td> {{company.cpysiren }}</td>
+    </tr>
+
+    <tr>
+       <td>Numero Siret:</td>
+       <td> {{company.cpysiret }}</td>
+    </tr>
+
+    <tr>
+       <td>Numero TVA:</td>
+       <td> {{company.cpytvanumber }}</td>
+    </tr>
+
+    <tr>
+        <td>Membres enregistres </td>
+        <td>
+        <ul>
+            {% for member in company.members %}
+                <li>{{ member.usrFirstname }}</li>
+            {% endfor %}
+        </ul>
+        </td>
+    </tr>
 
 
     </table><br>
+
+    <pre>Creation {{company.cpydcre|date('d/m/Y')}} by {{company.cpyucre}}</pre>
 
     <a href="{{ path('sp_company_edit', {'id': company.id}) }}">Mettre à jour </a>
 

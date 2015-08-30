@@ -40,6 +40,16 @@ class CompanyController extends Controller
 
         $form = $this->createFormBuilder($company)
             ->add('cpyName', 'text',array('required'=>true, 'max_length'=>64))
+            ->add('cpyLegalForm', 'text',array('required'=>true, 'max_length'=>24))
+            ->add('cpySiren', 'integer',array('required'=>true, 'max_length'=>9))
+            ->add('cpySiret', 'integer',array('required'=>true, 'max_length'=>14))
+            ->add('cpyTvaNumber', 'text',array('required'=>true, 'max_length'=>13))
+            ->add('cpyWebsite', 'text',array('required'=>true, 'max_length'=>128))
+            ->add('members','entity',array(
+                'class'=>'SPMemberBundle:Member',
+                'choice_label'=>'usr_firstname',
+                'multiple'=>true
+            ))
             ->add('save', 'submit')
             ->getForm();
 
@@ -67,6 +77,11 @@ class CompanyController extends Controller
 
          $form = $this->createFormBuilder($company)
             ->add('cpyName', 'text',array('required'=>true, 'max_length'=>64))
+            ->add('cpyLegalForm', 'text',array('required'=>true, 'max_length'=>24))
+            ->add('cpySiren', 'integer',array('required'=>true, 'max_length'=>9))
+            ->add('cpySiret', 'integer',array('required'=>true, 'max_length'=>14))
+            ->add('cpyTvaNumber', 'text',array('required'=>true, 'max_length'=>13))
+            ->add('cpyWebsite', 'text',array('required'=>true, 'max_length'=>128))
             ->add('save', 'submit')
             ->getForm();
 
