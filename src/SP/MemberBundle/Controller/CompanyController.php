@@ -87,6 +87,8 @@ class CompanyController extends Controller
 
              $form->handleRequest($request);
 
+            $company->setUsrDupd(new \Datetime());
+
 
         if ($form->isValid()) {
         // sauvegarde la compagnie dans la bdd

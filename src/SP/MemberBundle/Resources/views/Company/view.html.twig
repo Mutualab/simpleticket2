@@ -60,7 +60,7 @@
 
     </table><br>
 
-    <pre>Creation {{company.cpydcre|date('d/m/Y')}} by {{company.cpyucre}}</pre>
+    <pre>Creation on {{company.cpydcre|date('d/m/Y')}} by {{company.cpyucre}}<br>Last update on {{company.cpydupd|date('d/m/Y')}} by {{company.cpyuupd}}</pre>
 
     <a href="{{ path('sp_company_edit', {'id': company.id}) }}">Mettre à jour </a>
 
