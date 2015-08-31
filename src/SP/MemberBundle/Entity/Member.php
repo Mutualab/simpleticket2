@@ -77,7 +77,7 @@ class Member
     /**
      * @var string
      *
-     * @ORM\Column(name="usr_state", type="string", length=24,options={"unsigned":true, "default":"Active"})
+     * @ORM\Column(name="usr_state", type="string", length=24,nullable=true,options={"unsigned":true, "default":"Active"})
      */
     private $usrState = 'Active';
 
