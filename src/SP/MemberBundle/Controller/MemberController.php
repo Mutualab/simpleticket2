@@ -97,13 +97,13 @@ class MemberController extends Controller
 
              $form->handleRequest($request);
 
+        $member->setUsrDupd(new \Datetime());
 
         if ($form->isValid()) {
-        // sauvegarde la compagnie dans la bdd
+        // sauvegarde le membre dans la bdd
         $em = $this->getDoctrine()->getManager();
         $em->persist($member);
         $em->flush();
-
 
     }
     // Même mécanisme que pour l'ajout
