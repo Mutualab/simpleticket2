@@ -87,7 +87,7 @@ class CompanyController extends Controller
 
              $form->handleRequest($request);
 
-            $company->setUsrDupd(new \Datetime());
+            $company->setCpyDupd(new \Datetime());
 
 
         if ($form->isValid()) {
