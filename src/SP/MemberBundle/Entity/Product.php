@@ -52,23 +52,23 @@ class Product
     /**
      * @var float
      *
-     * @ORM\Column(name="pdt_price", type="float")
+     * @ORM\Column(name="pdt_price", type="float",scale=2)
      */
     private $pdtPrice;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pdt_currency", type="string", length=3)
+     * @ORM\Column(name="pdt_currency", type="string", length=3,options={"unsigned":true, "default":"Eur"})
      */
     private $pdtCurrency;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="pdt_state", type="string", length=24)
+     * @ORM\Column(name="pdt_state", type="string", length=24,options={"unsigned":true, "default":"Active"})
      */
-    private $pdtState;
+    private $pdtState = 'Active';
 
     /**
      * @var \DateTime
@@ -80,9 +80,9 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="pdt_ucre", type="string", length=20)
+     * @ORM\Column(name="pdt_ucre", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
-    private $pdtUcre;
+    private $pdtUcre  = 'Developper';
 
     /**
      * @var \DateTime
@@ -94,10 +94,16 @@ class Product
     /**
      * @var string
      *
-     * @ORM\Column(name="pdt_uupd", type="string", length=20)
+     * @ORM\Column(name="pdt_uupd", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
-    private $pdtUupd;
+    private $pdtUupd  = 'Developper';
 
+    public function __construct(){
+
+        // Par défaut, la date de creation et de modification est la date d'aujourd'hui
+        $this->pdtDcre = new \Datetime();
+        $this->pdtDupd = new \Datetime();
+   }
 
     /**
      * Get id
