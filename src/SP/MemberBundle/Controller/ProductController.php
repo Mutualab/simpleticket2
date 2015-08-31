@@ -83,7 +83,7 @@ class ProductController extends Controller
 
              $form->handleRequest($request);
 
-        $product->setUsrDupd(new \Datetime());
+        $product->setCpyDupd(new \Datetime());
 
 
         if ($form->isValid()) {
