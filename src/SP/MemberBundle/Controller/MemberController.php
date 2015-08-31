@@ -73,19 +73,50 @@ class MemberController extends Controller
 
     public function editAction($id, Request $request)
     {
-         // Ici, on récupérera la fiche correspondante à $id
+          // Ici, on récupérera la fiche correspondante à $id
+        $member = $this->getDoctrine()
+        ->getRepository('SPMemberBundle:Member')
+        ->find($id);
+
+         $form = $this->createFormBuilder($member)
+            ->add('usrFirstname', 'text',array('required'=>true, 'max_length'=>64))
+            ->add('usrLastname', 'text',array('required'=>true, 'max_length'=>64))
+            ->add('usrMail', 'email',array('required'=>true, 'max_length'=>128))
+            ->add('usrBirthdate', 'birthday', array('widget'=>'choice'))
+            ->add('usrWebsite', 'text',array('max_length'=>128))
+            ->add('usrMobile', 'text',array('max_length'=>16))
+            ->add('usrJobType', 'text',array('max_length'=>64))
+            ->add('usrJobTitle', 'text',array('max_length'=>64))
+            ->add('companies','entity',array(
+                'class'=>'SPMemberBundle:Company',
+                'choice_label'=>'cpyName',
+                'multiple'=>true
+            ))
+            ->add('save', 'submit')
+            ->getForm();
+
+             $form->handleRequest($request);
 
 
+        if ($form->isValid()) {
+        // sauvegarde la compagnie dans la bdd
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($member);
+        $em->flush();
+
+
+    }
     // Même mécanisme que pour l'ajout
 
-    if ($request->isMethod('POST')) {$request->getSession()->getFlashBag()->add('notice','Fiche bien modifiée.');
+    if ($request->isMethod('POST')) {
+        $request->getSession()->getFlashBag()->add('notice','Fiche bien modifiée.');
 
-      return $this->redirect($this->generateUrl('sp_member_view', array('id'=>5)));
+        return $this->redirect($this->generateUrl('sp_member_view',array('id'=>$member->getId())));
 
     }
 
-
-    return $this->render('SPMemberBundle:Member:edit.html.twig');
+   return $this->render('SPMemberBundle:Member:edit.html.twig', array(          'form'=>$form->createView(),'member'=> $member
+        ));
     }
 
     public function deleteAction($id)
