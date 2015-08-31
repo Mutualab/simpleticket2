@@ -7,8 +7,8 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Product
  *
- * @ORM\Table()
- * @ORM\Entity(repositoryClass="SP\MemberBundle\Entity\ProductRepository")
+ * @ORM\Table(name="product")
+ * @ORM\Entity(repositoryClass="SP\MemberBundle\Repository\ProductRepository")
  */
 class Product
 {
@@ -52,7 +52,7 @@ class Product
     /**
      * @var float
      *
-     * @ORM\Column(name="pdt_price", type="float",scale=2)
+     * @ORM\Column(name="pdt_price", type="decimal",scale=2)
      */
     private $pdtPrice;
 
