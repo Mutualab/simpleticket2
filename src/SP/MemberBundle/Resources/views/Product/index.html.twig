@@ -1,0 +1,30 @@
+{% extends "SPMemberBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+
+{% endblock %}
+
+{% block spproduct_body %}
+
+
+  <h2>Liste des produits</h2>
+
+  <ul>
+    {% for product in listproducts %}
+      <li>
+        <a href="{{ path('sp_product_view', {'id': product.id}) }}">
+          {{ product.pdtname}}
+        </a>
+      </li>
+
+    {% else %}
+
+      <li>Pas (encore !!!) de produits</li>
+
+    {% endfor %}
+
+  </ul>
+
+
+{% endblock %}

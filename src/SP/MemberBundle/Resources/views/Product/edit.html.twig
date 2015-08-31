@@ -1,0 +1,17 @@
+{% extends "SPMemberBundle::layout.html.twig" %}
+
+
+   {% block spproduct_body %}
+    <h1>Fiche Produit</h1>
+    <p>
+      {# On affiche tous les messages flash dont le nom est « info » #}
+      {% for message in app.session.flashbag.get('info') %}
+        <p>Message flash : {{ message }}</p>
+      {% endfor %}
+    </p>
+
+      {{ include("SPMemberBundle:Product:form.html.twig") }}
+    <br>
+
+
+    {% endblock %}
