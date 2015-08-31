@@ -44,8 +44,8 @@ class ProductController extends Controller
             ->add('pdtname', 'text',array('required'=>true, 'max_length'=>128))
             ->add('pdtdesc', 'text',array('required'=>true, 'max_length'=>255))
             ->add('pdtunitqty', 'integer')
-            ->add('pdtprice', 'float')
-            ->add('pdtcurrency', 'text',array('max_length'=>3))
+            ->add('pdtprice', 'number')
+            ->add('pdtcurrency', 'currency')
             ->add('save', 'submit')
             ->getForm();
 
@@ -54,12 +54,12 @@ class ProductController extends Controller
     if ($form->isValid()) {
         // sauvegarde le membre dans la bdd
         $em = $this->getDoctrine()->getManager();
-        $em->persist($member);
+        $em->persist($product);
         $em->flush();
 
-        return $this->redirect($this->generateUrl('sp_member_view',array('id'=>$member->getId())));
+        return $this->redirect($this->generateUrl('sp_product_view',array('id'=>$product->getId())));
     }
-        return $this->render('SPMemberBundle:Member:add.html.twig', array(          'form'=>$form->createView(),
+        return $this->render('SPMemberBundle:Product:add.html.twig', array(          'form'=>$form->createView(),
         ));
 
     }
@@ -67,34 +67,29 @@ class ProductController extends Controller
     public function editAction($id, Request $request)
     {
           // Ici, on récupérera la fiche correspondante à $id
-        $member = $this->getDoctrine()
-        ->getRepository('SPMemberBundle:Member')
+        $product = $this->getDoctrine()
+        ->getRepository('SPMemberBundle:Product')
         ->find($id);
 
-         $form = $this->createFormBuilder($member)
-            ->add('usrFirstname', 'text',array('required'=>true, 'max_length'=>64))
-            ->add('usrLastname', 'text',array('required'=>true, 'max_length'=>64))
-            ->add('usrMail', 'email',array('required'=>true, 'max_length'=>128))
-            ->add('usrBirthdate', 'birthday', array('widget'=>'choice'))
-            ->add('usrWebsite', 'text',array('max_length'=>128))
-            ->add('usrMobile', 'text',array('max_length'=>16))
-            ->add('usrJobType', 'text',array('max_length'=>64))
-            ->add('usrJobTitle', 'text',array('max_length'=>64))
-            ->add('companies','entity',array(
-                'class'=>'SPMemberBundle:Company',
-                'choice_label'=>'cpyName',
-                'multiple'=>true
-            ))
+         $form = $this->createFormBuilder($product)
+            ->add('pdttype', 'text',array('required'=>true, 'max_length'=>24))
+            ->add('pdtname', 'text',array('required'=>true, 'max_length'=>128))
+            ->add('pdtdesc', 'text',array('required'=>true, 'max_length'=>255))
+            ->add('pdtunitqty', 'integer')
+            ->add('pdtprice', 'number')
+            ->add('pdtcurrency', 'currency')
             ->add('save', 'submit')
             ->getForm();
 
              $form->handleRequest($request);
 
+        $product->setUsrDupd(new \Datetime());
+
 
         if ($form->isValid()) {
         // sauvegarde la compagnie dans la bdd
         $em = $this->getDoctrine()->getManager();
-        $em->persist($member);
+        $em->persist($product);
         $em->flush();
 
 
@@ -104,11 +99,11 @@ class ProductController extends Controller
     if ($request->isMethod('POST')) {
         $request->getSession()->getFlashBag()->add('notice','Fiche bien modifiée.');
 
-        return $this->redirect($this->generateUrl('sp_member_view',array('id'=>$member->getId())));
+        return $this->redirect($this->generateUrl('sp_product_view',array('id'=>$product->getId())));
 
     }
 
-   return $this->render('SPMemberBundle:Member:edit.html.twig', array(          'form'=>$form->createView(),'member'=> $member
+   return $this->render('SPMemberBundle:Product:edit.html.twig', array(          'form'=>$form->createView(),'product'=> $product
         ));
     }
 
@@ -119,7 +114,7 @@ class ProductController extends Controller
     // Ici, on gérera la suppression de la fiche en question
 
 
-    return $this->render('SPMemberBundle:Member:delete.html.twig');
+    return $this->render('SPMemberBundle:Product:delete.html.twig');
     }
 
 }

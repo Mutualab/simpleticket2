@@ -13,35 +13,32 @@
     <table >
     <tr>
         <td>Produit</td>
-        <td>{{ product.name}}</td>
+        <td>{{ product.pdtname}}</td>
     </tr>
 
     <tr>
        <td>Type:</td>
-       <td> {{ product.type }} </td>
+       <td> {{ product.pdttype }} </td>
     </tr>
 
       <tr>
        <td>Description: </td>
-       <td>{{product.desc}}</td>
+       <td>{{product.pdtdesc}}</td>
     </tr>
 
     <tr>
         <td>Prix unitaire: </td>
-        <td>{{product.price}} {{product.currency}}</td>
+        <td>{{product.pdtprice}} {{product.pdtcurrency}}</td>
     </tr>
 
     <tr>
         <td>Statut: </td>
-        <td>{{product.state}} </td>
+        <td>{{product.pdtstate}} </td>
     </tr>
 
     </table><br>
 
-    <pre>Creation {{product.usrdcre|date('d/m/Y')}} by {{product.usrucre}}</pre>
+    <pre>Creation on {{product.pdtdcre|date('d/m/Y')}} by {{product.pdtucre}}<br>Last update on {{product.pdtdupd|date('d/m/Y')}} by {{product.pdtuupd}}</pre>
 
     <a href="{{ path('sp_product_edit', {'id': product.id}) }}">Mettre à jour </a>
     {% endblock %}
-
-
-
