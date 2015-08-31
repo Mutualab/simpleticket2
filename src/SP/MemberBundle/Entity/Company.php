@@ -39,21 +39,21 @@ class Company
      /**
      * @var integer
      *
-     * @ORM\Column(name="cpy_siren", type="integer", length=9)
+     * @ORM\Column(name="cpy_siren", type="integer", length=9,nullable=true)
      */
     private $cpySiren;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="cpy_siret", type="integer", length=14)
+     * @ORM\Column(name="cpy_siret", type="integer", length=14,nullable=true)
      */
     private $cpySiret;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cpy_tva_number", type="string", length=13)
+     * @ORM\Column(name="cpy_tva_number", type="string", length=13,nullable=true)
      */
     private $cpyTvaNumber;
 
