@@ -50,3 +50,28 @@ sp_company_delete:
     requirements:
         id: \d+
 
+sp_product_homepage:
+    pattern:  /product/
+    defaults: { _controller:SPMemberBundle:Product:index }
+
+sp_product_view:
+    pattern:  /product/{id}
+    defaults: { _controller:SPMemberBundle:Product:view }
+    requirements:
+        id: \d+
+
+sp_product_add:
+    pattern:  /product/add
+    defaults: { _controller:SPMemberBundle:Product:add }
+
+sp_product_edit:
+    pattern:  /product/edit/{id}
+    defaults: { _controller:SPMemberBundle:Product:edit }
+    requirements:
+        id: \d+
+
+sp_product_delete:
+    pattern:  /product/delete/{id}
+    defaults: { _controller:SPMemberBundle:Product:delete }
+    requirements:
+        id: \d+
