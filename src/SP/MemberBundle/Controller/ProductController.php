@@ -110,11 +110,17 @@ class ProductController extends Controller
     public function deleteAction($id)
     {
         // Ici, on récupérera la fiche correspondant à $id
+         $product = $this->getDoctrine()
+            ->getRepository('SPMemberBundle:Product')
+            ->find($id);
 
     // Ici, on gérera la suppression de la fiche en question
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($product);
+        $em->flush();
 
-
-    return $this->render('SPMemberBundle:Product:delete.html.twig');
+    // Une fois la suppression effectuee, on renvoie sur la liste des produits
+        return $this->redirect($this->generateUrl('sp_product_homepage'));    }
     }
 
 }
