@@ -136,11 +136,7 @@ class MemberController extends Controller
 
 
     // Une fois la suppression effcetuee, on renvoie sur la liste des membres
-        $listmembers = $this->getDoctrine()
-        ->getRepository('SPMemberBundle:Member')
-        ->findAll();
 
-     return $this->render('SPMemberBundle:Member:index.html.twig',array('listmembers'=> $listmembers));
-    }
+        return $this->redirect($this->generateUrl('sp_member_homepage'));    }
 
 }
