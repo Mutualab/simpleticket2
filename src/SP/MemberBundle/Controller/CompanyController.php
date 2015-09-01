@@ -113,12 +113,19 @@ class CompanyController extends Controller
 
     public function deleteAction($id)
     {
-        // Ici, on récupérera la fiche correspondant à $id
+    // Ici, on récupérera la fiche correspondant à $id
+        $company = $this->getDoctrine()
+            ->getRepository('SPMemberBundle:Company')
+            ->find($id);
 
     // Ici, on gérera la suppression de la fiche en question
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($company);
+        $em->flush();
 
 
-    return $this->render('SPMemberBundle:Company:delete.html.twig');
+    // Une fois la suppression effectuee, on renvoie sur la liste des entites
+        return $this->redirect($this->generateUrl('sp_company_homepage'));
     }
 
 }
