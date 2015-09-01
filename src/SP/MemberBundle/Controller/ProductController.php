@@ -120,7 +120,7 @@ class ProductController extends Controller
         $em->flush();
 
     // Une fois la suppression effectuee, on renvoie sur la liste des produits
-        return $this->redirect($this->generateUrl('sp_product_homepage'));    }
+        return $this->redirect($this->generateUrl('sp_product_homepage'));
     }
 
 }
