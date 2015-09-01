@@ -49,6 +49,7 @@ class MemberController extends Controller
             ->add('usrJobType', 'text',array('max_length'=>64))
             ->add('usrJobTitle', 'text',array('max_length'=>64))
             ->add('companies','entity',array(
+                'required'=>false,
                 'class'=>'SPMemberBundle:Company',
                 'choice_label'=>'cpyName',
                 'multiple'=>true
@@ -123,10 +124,23 @@ class MemberController extends Controller
     {
         // Ici, on récupérera la fiche correspondant à $id
 
+         $member = $this->getDoctrine()
+            ->getRepository('SPMemberBundle:Member')
+            ->find($id);
+
+
     // Ici, on gérera la suppression de la fiche en question
+        $em = $this->getDoctrine()->getManager();
+        $em->remove($member);
+        $em->flush();
 
 
-    return $this->render('SPMemberBundle:Member:delete.html.twig');
+    // Une fois la suppression effcetuee, on renvoie sur la liste des membres
+        $listmembers = $this->getDoctrine()
+        ->getRepository('SPMemberBundle:Member')
+        ->findAll();
+
+     return $this->render('SPMemberBundle:Member:index.html.twig',array('listmembers'=> $listmembers));
     }
 
 }
