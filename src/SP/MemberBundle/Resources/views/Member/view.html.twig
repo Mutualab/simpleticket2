@@ -60,7 +60,9 @@
 
     <pre>Creation on {{member.usrdcre|date('d/m/Y')}} by {{member.usrucre}}<br>Last update on {{member.usrdupd|date('d/m/Y')}} by {{member.usruupd}}</pre>
 
-    <a href="{{ path('sp_member_edit', {'id': member.id}) }}">Mettre à jour </a>
+    <a href="{{ path('sp_member_edit', {'id': member.id}) }}">Mettre à jour  /  </a>
+    <a class=delete href="{{ path('sp_member_delete', {'id': member.id}) }}">Supprimer </a>
+
     {% endblock %}
 
 
