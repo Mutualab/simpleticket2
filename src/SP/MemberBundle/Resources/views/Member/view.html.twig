@@ -61,9 +61,22 @@
     <pre>Creation on {{member.usrdcre|date('d/m/Y')}} by {{member.usrucre}}<br>Last update on {{member.usrdupd|date('d/m/Y')}} by {{member.usruupd}}</pre>
 
     <a href="{{ path('sp_member_edit', {'id': member.id}) }}">Mettre à jour  /  </a>
-    <a class=delete href="{{ path('sp_member_delete', {'id': member.id}) }}">Supprimer </a>
+
+    <a class="delete member" href="{{ path('sp_member_delete', {'id': member.id}) }}">Supprimer </a>
+{% endblock %}
+
+{% block javascriptsrun %}
+{# Avant de supprimer une entree on demande une confiramtion. Sur la fonction unclick() on intercepte toute action. sur un click ok on dirige vers la suppression #}
+<script>
+    $(".delete.member" ).click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        if(window.confirm("Voulez-vous vraiment supprimer cet element?")){
+           document.location="{{ path('sp_member_delete', {'id': member.id}) }}";
+            }
+        });
+</script>
 
     {% endblock %}
-
-
 
