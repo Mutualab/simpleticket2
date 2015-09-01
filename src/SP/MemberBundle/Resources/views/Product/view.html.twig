@@ -40,5 +40,23 @@
 
     <pre>Creation on {{product.pdtdcre|date('d/m/Y')}} by {{product.pdtucre}}<br>Last update on {{product.pdtdupd|date('d/m/Y')}} by {{product.pdtuupd}}</pre>
 
-    <a href="{{ path('sp_product_edit', {'id': product.id}) }}">Mettre à jour </a>
+     <a href="{{ path('sp_product_edit', {'id': product.id}) }}">Mettre à jour  /  </a>
+
+    <a class="delete product" href="{{ path('sp_product_delete', {'id': product.id}) }}">Supprimer </a>
+{% endblock %}
+
+{% block javascriptsrun %}
+{# Avant de supprimer une entree on demande une confirmation. Sur la fonction unclick() on intercepte toute action. Sur un click ok on dirige vers la suppression #}
+<script>
+    $(".delete.product" ).click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        if(window.confirm("Voulez-vous vraiment supprimer ce produit?")){
+           document.location="{{ path('sp_product_delete', {'id': product.id}) }}";
+            }
+        });
+</script>
+
     {% endblock %}
+
