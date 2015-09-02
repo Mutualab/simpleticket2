@@ -109,7 +109,7 @@ class OrderLine
         // Par défaut, la date de creation et de modification est la date du jour
         $this->odlDcre = new \Datetime();
         $this->odlDupd = new \Datetime();
-
+        $this->odlStartDate = new \Datetime();
    }
 
 
