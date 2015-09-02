@@ -107,7 +107,7 @@ class Member
      *
      * @ORM\Column(name="usr_uupd", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
-    private $usrUupd = 'developper';
+    private $usrUupd = 'Developper';
 
     /**
      * @ORM\ManyToMany(targetEntity="Company", inversedBy="members")
@@ -115,9 +115,8 @@ class Member
      **/
     private $companies;
 
-    public function __construct()
-    {
-        // Par défaut, la date de creation et de modification est la date d'aujourd'hui
+    public function __construct(){
+        // Par défaut, la date de creation et de modification est la date du jour
         $this->usrDcre = new \Datetime();
         $this->usrDupd = new \Datetime();
         $this->companies = new ArrayCollection();
