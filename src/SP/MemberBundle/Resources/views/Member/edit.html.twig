@@ -1,14 +1,8 @@
 {% extends "SPMemberBundle::layout.html.twig" %}
 
 
-   {% block spcompany_body %}
+   {% block spmember_body %}
     <h1>Fiche Adherent</h1>
-    <p>
-      {# On affiche tous les messages flash dont le nom est « info » #}
-      {% for message in app.session.flashbag.get('info') %}
-        <p>Message flash : {{ message }}</p>
-      {% endfor %}
-    </p>
 
       {{ include("SPMemberBundle:Member:form.html.twig") }}
     <br>
