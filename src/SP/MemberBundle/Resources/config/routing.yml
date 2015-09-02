@@ -75,3 +75,29 @@ sp_product_delete:
     defaults: { _controller:SPMemberBundle:Product:delete }
     requirements:
         id: \d+
+
+sp_orderline_homepage:
+    pattern:  /order/
+    defaults: { _controller:SPMemberBundle:OrderLine:index }
+
+sp_orderline_view:
+    pattern:  /order/{id}
+    defaults: { _controller:SPMemberBundle:OrderLine:view }
+    requirements:
+        id: \d+
+
+sp_orderline_add:
+    pattern:  /order/add
+    defaults: { _controller:SPMemberBundle:OrderLine:add }
+
+sp_orderline_edit:
+    pattern:  /order/edit/{id}
+    defaults: { _controller:SPMemberBundle:OrderLine:edit }
+    requirements:
+        id: \d+
+
+sp_orderline_delete:
+    pattern:  /order/delete/{id}
+    defaults: { _controller:SPMemberBundle:OrderLine:delete }
+    requirements:
+        id: \d+
