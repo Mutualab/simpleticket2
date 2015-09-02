@@ -21,6 +21,20 @@ class OrderLine
      */
     private $id;
 
+    //on autorise le champs 'member' a etre null mais 'company' devrat etre renseigne
+    /**
+    * @ORM\ManyToOne(targetEntity="SP\MemberBundle\Entity\Member")
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $member;
+
+    //on autorise le champs 'company' a etre null mais 'member' devrat etre renseigne
+    /**
+    * @ORM\ManyToOne(targetEntity="SP\MemberBundle\Entity\Company")
+    * @ORM\JoinColumn(nullable=true)
+    */
+    private $company;
+
     /**
      * @var integer
      *
@@ -54,7 +68,7 @@ class OrderLine
      *
      * @ORM\Column(name="odl_state", type="string", length=24)
      */
-    private $odlState;
+    private $odlState='Active';
 
     /**
      * @var \DateTime
@@ -68,7 +82,7 @@ class OrderLine
      *
      * @ORM\Column(name="odl_ucre", type="string", length=20)
      */
-    private $odlUcre;
+    private $odlUcre='Developper';
 
     /**
      * @var \DateTime
@@ -82,7 +96,15 @@ class OrderLine
      *
      * @ORM\Column(name="odl_uupd", type="string", length=20)
      */
-    private $odlUupd;
+    private $odlUupd='Developper';
+
+    public function __construct(){
+        // Par défaut, la date de creation et de modification est la date du jour
+        $this->odlDcre = new \Datetime();
+        $this->odlDupd = new \Datetime();
+
+   }
+
 
 
     /**
@@ -300,5 +322,51 @@ class OrderLine
     public function getOdlUupd()
     {
         return $this->odlUupd;
+    }
+
+    /**
+     * Set member
+     *
+     * @param \SP\MemberBundle\Entity\Member $member
+     * @return OrderLine
+     */
+    public function setMember()
+    {
+        $this->member = $member;
+
+        return $this;
+    }
+
+    /**
+     * Get member
+     *
+     * @return \SP\MemberBundle\Entity\Member
+     */
+    public function getMember()
+    {
+        return $this->member;
+    }
+
+    /**
+     * Set company
+     *
+     * @param \SP\MemberBundle\Entity\Company $company
+     * @return OrderLine
+     */
+    public function setCompany()
+    {
+        $this->company = $company;
+
+        return $this;
+    }
+
+    /**
+     * Get company
+     *
+     * @return \SP\MemberBundle\Entity\Company
+     */
+    public function getCompany()
+    {
+        return $this->company;
     }
 }
