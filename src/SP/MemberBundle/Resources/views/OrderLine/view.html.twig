@@ -1,0 +1,30 @@
+{% extends "SPMemberBundle::layout.html.twig" %}
+
+
+   {% block sporderline_body %}
+    <h1>Commande {{ orderline.id }}</h1>
+
+    <br>
+
+    <pre>Creation on {{orderline.odldcre|date('d/m/Y')}} by {{orderline.odlucre}}<br>Last update on {{orderline.odldupd|date('d/m/Y')}} by {{orderline.odluupd}}</pre>
+
+    <a href="{{ path('sp_orderline_edit', {'id': orderline.id}) }}">Mettre à jour  /  </a>
+
+    <a class="delete orderline" href="{{ path('sp_orderline_delete', {'id': orderline.id}) }}">Supprimer </a>
+{% endblock %}
+
+{% block javascriptsrun %}
+{# Avant de supprimer une entree on demande une confirmation. Sur la fonction unclick() on intercepte toute action. Sur un click ok on dirige vers la suppression #}
+<script>
+    $(".delete.orderline" ).click(function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        event.stopImmediatePropagation();
+        if(window.confirm("Voulez-vous vraiment supprimer cette commande?")){
+           document.location="{{ path('sp_orderline_delete', {'id': orderline.id}) }}";
+            }
+        });
+</script>
+
+    {% endblock %}
+

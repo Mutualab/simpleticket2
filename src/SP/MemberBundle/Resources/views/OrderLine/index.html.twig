@@ -1,0 +1,30 @@
+{% extends "SPMemberBundle::layout.html.twig" %}
+
+{% block title %}
+  Accueil - {{ parent() }}
+
+{% endblock %}
+
+{% block sporderline_body %}
+
+
+  <h2>Liste des commandes</h2>
+
+  <ul>
+    {% for orderline in listorderlines %}
+      <li>
+        <a href="{{ path('sp_orderline_view', {'id': orderline.id}) }}">
+          {{ orderline.id}} {{orderline.member}} {{orderline.company}}
+        </a>
+      </li>
+
+    {% else %}
+
+      <li>Pas (encore !!!) de commandes</li>
+
+    {% endfor %}
+
+  </ul>
+
+
+{% endblock %}
