@@ -1,29 +1,28 @@
 {% extends "::layout.html.twig" %}
 
+
 {% block title %}
 
-  Membres - {{ parent() }}
+  SimpleTicket - {{ parent() }}
 
 {% endblock %}
 
 
 {% block body %}
-
-
   {# On définit un sous-titre commun à toutes les pages du bundle, par exemple #}
 
 
   {% block spmember_body %}
-
   {% endblock %}
 
 
   {% block spcompany_body %}
-
   {% endblock %}
 
   {% block spproduct_body %}
-
   {% endblock %}
+
+    {% block sporderline_body %}
+    {% endblock %}
 
 {% endblock %}
