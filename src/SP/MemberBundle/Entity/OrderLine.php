@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * OrderLine
  *
- * @ORM\Table(name="order")
+ * @ORM\Table(name="orderline")
  * @ORM\Entity(repositoryClass="SP\MemberBundle\Repository\OrderLineRepository")
  */
 class OrderLine
@@ -35,6 +35,13 @@ class OrderLine
     */
     private $company;
 
+    //on n'autorise pas le champs 'product' a etre null, une commande contient au moins un produit
+    /**
+    * @ORM\ManyToOne(targetEntity="SP\MemberBundle\Entity\Product")
+    * @ORM\JoinColumn(nullable=false)
+    */
+    private $product;
+
     /**
      * @var integer
      *
@@ -43,9 +50,9 @@ class OrderLine
     private $odlInitialQty;
 
     /**
-     * @var float
+     * @var decimal
      *
-     * @ORM\Column(name="odl_pending_qty", type="float")
+     * @ORM\Column(name="odl_pending_qty", type="decimal",scale=2)
      */
     private $odlPendingQty;
 
@@ -66,7 +73,7 @@ class OrderLine
     /**
      * @var string
      *
-     * @ORM\Column(name="odl_state", type="string", length=24)
+     * @ORM\Column(name="odl_state", type="string", length=24,options={"unsigned":true, "default":"Active"})
      */
     private $odlState='Active';
 
@@ -80,7 +87,7 @@ class OrderLine
     /**
      * @var string
      *
-     * @ORM\Column(name="odl_ucre", type="string", length=20)
+     * @ORM\Column(name="odl_ucre", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
     private $odlUcre='Developper';
 
@@ -94,7 +101,7 @@ class OrderLine
     /**
      * @var string
      *
-     * @ORM\Column(name="odl_uupd", type="string", length=20)
+     * @ORM\Column(name="odl_uupd", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
     private $odlUupd='Developper';
 
@@ -368,5 +375,28 @@ class OrderLine
     public function getCompany()
     {
         return $this->company;
+    }
+
+    /**
+     * Set product
+     *
+     * @param \SP\MemberBundle\Entity\Product $product
+     * @return OrderLine
+     */
+    public function setProduct(Product $product)
+    {
+        $this->product = $product;
+
+        return $this;
+    }
+
+    /**
+     * Get product
+     *
+     * @return \SP\MemberBundle\Entity\Product
+     */
+    public function getProduct()
+    {
+        return $this->product;
     }
 }
