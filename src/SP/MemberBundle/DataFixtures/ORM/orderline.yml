@@ -1,0 +1,4 @@
+
+#SP\MemberBundle\Entity\OrderLine:
+#    orderline_{1..10}:
+#        name: <name()>
