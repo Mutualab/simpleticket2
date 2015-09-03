@@ -1,0 +1,5 @@
+
+SP\MemberBundle\Entity\Company:
+    company_{1..10}:
+        cpyName: <name()>
+        cpyLegalForm: <name()>
