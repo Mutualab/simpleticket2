@@ -3,6 +3,9 @@
 # update package
 apt-get update
 
+# install git
+apt-get install -y git
+
 # install apache2
 apt-get install -y apache2
 
