@@ -1,0 +1,4 @@
+CREATE USER 'admin'@'%' IDENTIFIED BY 'cowo';
+CREATE DATABASE mtl_simpleticket DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER, LOCK TABLES ON mtl_simpleticket.* TO 'admin'@'%';
+
