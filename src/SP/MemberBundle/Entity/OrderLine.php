@@ -337,7 +337,7 @@ class OrderLine
      * @param \SP\MemberBundle\Entity\Member $member
      * @return OrderLine
      */
-    public function setMember()
+    public function setMember(Member $member)
     {
         $this->member = $member;
 
@@ -360,7 +360,7 @@ class OrderLine
      * @param \SP\MemberBundle\Entity\Company $company
      * @return OrderLine
      */
-    public function setCompany()
+    public function setCompany(Company $company)
     {
         $this->company = $company;
 
