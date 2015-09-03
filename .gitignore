@@ -9,4 +9,7 @@
 /composer.phar
 /vendor/
 /web/bundles/
-/composer.json~
+
+# backup files
+*~
+
