@@ -2,8 +2,25 @@
 
 
    {% block sporderline_body %}
-    <h1>Commande {{ orderline.id }}</h1>
+    <h1>Commande Numero {{ orderline.id }}</h1>
 
+    <br>
+    <table>
+    <tr>
+        <td>
+        {{orderline.odlInitialQty}} x {{orderline.product.pdtName}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Commande activee le            {{orderline.odlStartdate|date('d/m/Y')}}
+        </td>
+    </tr>
+    <tr>
+        <td>Quantite restante:</td>
+        <td><b>{{orderline.odlPendingQty}}</b></td>
+    </tr>
+    </table>
     <br>
 
     <pre>Creation on {{orderline.odldcre|date('d/m/Y')}} by {{orderline.odlucre}}<br>Last update on {{orderline.odldupd|date('d/m/Y')}} by {{orderline.odluupd}}</pre>
