@@ -110,6 +110,7 @@ class OrderLine
         $this->odlDcre = new \Datetime();
         $this->odlDupd = new \Datetime();
         $this->odlStartDate = new \Datetime();
+        $this->odlEndDate = new \Datetime();
    }
 
 

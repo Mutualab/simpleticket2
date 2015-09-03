@@ -65,6 +65,16 @@ class OrderLineController extends Controller
          $form->handleRequest($request);
 
     if ($form->isValid()) {
+
+       /* var_dump($orderline);
+        exit();*/
+
+    //On recupere la quantite de ticket du produit on le multiplie par le nombre de produit achete, on obtient la quantite restante
+        $orderline->setOdlPendingQty(
+            $orderline->getProduct()->getPdtUnitQty()
+            *
+            $orderline->getOdlInitialQty()
+        );
     //On récupère un objet gestionnaire d'entités (entity manager) de Doctrine, qui est responsable de la gestion du processus de persistance et de récupération des objets vers et depuis la base de données.
 
         $em = $this->getDoctrine()->getManager();
