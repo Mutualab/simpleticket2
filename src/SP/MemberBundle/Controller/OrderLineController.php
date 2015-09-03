@@ -165,4 +165,43 @@ class OrderLineController extends Controller
 
         return $this->redirect($this->generateUrl('sp_orderline_homepage'));    }
 
+    public function loggingAction($id,Request $request)
+    {
+      // Ici, on récupérera la commande correspondante à $id
+        $orderline = $this->getDoctrine()
+        ->getRepository('SPMemberBundle:OrderLine')
+        ->find($id);
+
+        // on definit les champs du formulaire
+        $form = $this->createFormBuilder($orderline)
+            ->add('odlPendingQty', 'number')
+            ->add('save', 'submit')
+            ->getForm();
+
+        $form->handleRequest($request);
+
+
+        if ($form->isValid()) {
+         $orderline->setOdlDupd(new \Datetime());
+
+        // sauvegarde le membre dans la bdd
+        $em = $this->getDoctrine()->getManager();
+        $em->persist($orderline);
+        $em->flush();
+        }
+
+         // Même mécanisme que pour l'ajout
+
+        if ($request->isMethod('POST')) {
+            $request->getSession()->getFlashBag()->add('notice','Fiche bien modifiée.');
+
+            return $this->redirect($this->generateUrl('sp_orderline_view',array('id'=>$orderline->getId())));
+        }
+
+   return $this->render('SPMemberBundle:OrderLine:edit.html.twig',
+        array(
+            'form'=>$form->createView(),'orderline'=> $orderline
+        ));
+    }
+
 }

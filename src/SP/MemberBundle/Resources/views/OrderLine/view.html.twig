@@ -21,7 +21,9 @@
         <td><b>{{orderline.odlPendingQty}}</b></td>
     </tr>
     </table>
-    <br>
+
+    <a href="{{ path('sp_orderline_logging', {'id': orderline.id}) }}">      <b>Se logger</b></a>
+    <br><br>
 
     <pre>Creation on {{orderline.odldcre|date('d/m/Y')}} by {{orderline.odlucre}}<br>Last update on {{orderline.odldupd|date('d/m/Y')}} by {{orderline.odluupd}}</pre>
 

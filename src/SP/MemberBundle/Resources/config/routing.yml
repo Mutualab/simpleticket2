@@ -101,3 +101,9 @@ sp_orderline_delete:
     defaults: { _controller:SPMemberBundle:OrderLine:delete }
     requirements:
         id: \d+
+
+sp_orderline_logging:
+    pattern:  /order/logg/{id}
+    defaults: { _controller:SPMemberBundle:OrderLine:logging }
+    requirements:
+        id: \d+
