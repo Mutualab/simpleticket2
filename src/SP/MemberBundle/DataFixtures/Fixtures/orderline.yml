@@ -1,0 +1,7 @@
+SP\MemberBundle\Entity\OrderLine:
+  orderline_{1..50}:
+    member: @member_*
+    product: @product_*
+    odlInitialQty: 1
+    calculateOdlPendingQty: []
+

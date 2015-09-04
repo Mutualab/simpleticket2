@@ -1,0 +1,6 @@
+SP\MemberBundle\Entity\Member:
+  member_{1..100}:
+    usrFirstname: <name()>
+    usrLastname: <name()>
+    usrBirthdate: <dateTime()>
+

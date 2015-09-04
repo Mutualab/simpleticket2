@@ -1,9 +1,0 @@
-#
-#SP\MemberBundle\Entity\Product:
-#    product_{1..10}:
-#        pdtType: <name()>
-#        pdtName: <name()>
-#        pdtDesc: <name()>
-#        pdtUnitQty: <numberBetween(10,90)>
-#        pdtPrice: <numberBetween(10,90)>
-#        pdtCurrency: <currencyCode()>
