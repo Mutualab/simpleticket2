@@ -1,0 +1,9 @@
+SP\MemberBundle\Entity\Product:
+  product_{1..10}:
+    pdtType: <sentence()>
+    pdtName: <sentence()>
+    pdtDesc: <sentence()>
+    pdtUnitQty: <numberBetween(10, 100)>
+    pdtPrice: <randomFloat(2, 10, 200)>
+    pdtCurrency: Eur
+

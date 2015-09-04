@@ -1,8 +1,0 @@
-#
-#SP\MemberBundle\Entity\Member:
-#    member_{1..10}:
-#        usrFirstname: <name()>
-#        usrLastname: <name()>
-#        usrBirthdate: <date()>
-        
-        
