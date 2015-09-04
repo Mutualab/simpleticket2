@@ -112,6 +112,17 @@ class OrderLine
         $this->odlStartDate = new \Datetime();
         $this->odlEndDate = new \Datetime();
    }
+    
+    public function calculateOdlPendingQty()
+    {
+         $this->setOdlPendingQty(
+            $this->getProduct()->getPdtUnitQty()
+            *
+            $this->getOdlInitialQty()
+        );
+        
+        return $this;
+    }
 
 
 
