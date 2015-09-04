@@ -23,7 +23,8 @@
         "doctrine/migrations":"dev-master",
         "doctrine/doctrine-migrations-bundle":"dev-master",
 	"hautelook/alice-bundle":"dev-master",
-        "doctrine/data-fixtures": "^1.1"
+        "doctrine/data-fixtures": "^1.1",
+        "doctrine/doctrine-fixtures-bundle": "^2.2"
 
     },
     "require-dev": {

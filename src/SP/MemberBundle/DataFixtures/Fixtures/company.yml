@@ -1,0 +1,6 @@
+SP\MemberBundle\Entity\Company:
+  company_{1..20}:
+    cpyName: <company()> <companySuffix()>
+    cpyLegalForm: <name()>
+    members: <numberBetween(2, 10)>x @member_*
+
