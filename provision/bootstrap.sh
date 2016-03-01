@@ -6,6 +6,13 @@ apt-get update
 # install git
 apt-get install -y git
 
+# Réglage de la zone horaire du serveur
+echo "Europe/Paris" > /etc/timezone
+
+# Modifier php.ini pour la timezone PHP
+sed -ie 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Paris/g' /etc/php5/cli/php.ini
+sed -ie 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Paris/g' /etc/php5/apache2/php.ini
+
 # install apache2
 apt-get install -y apache2
 
@@ -65,4 +72,5 @@ ln -s /etc/apache2/sites-available/website.conf /etc/apache2/sites-enabled/websi
 
 # restart apache2
 service apache2 restart
+
 
