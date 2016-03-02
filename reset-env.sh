@@ -12,5 +12,5 @@ echo "environment: $environment"
 
 php app/console doctrine:schema:drop --force --env=$environment
 php app/console doctrine:schema:create --env=$environment
-php app/console hautelook_alice:fixtures:load -n --env=$environment
+php app/console hautelook_alice:doctrine:fixtures:load -n --env=$environment
 

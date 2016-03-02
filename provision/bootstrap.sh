@@ -45,7 +45,7 @@ service mysql restart
 
 # add repo php5.4
 apt-get install -y python-software-properties
-add-apt-repository -y ppa:ondrej/php5-oldstable
+add-apt-repository -y ppa:ondrej/php5-5.6
 apt-get update
 
 # install php5.4
@@ -58,17 +58,25 @@ apt-get install -y php5-mysql
 apt-get install -y php5-xdebug
 
 # configure apache2
-cp /vagrant/provision/servername.conf /etc/apache2/conf.d/servername.conf
+cp /vagrant/provision/servername.conf /etc/apache2/conf-available/servername.conf
+ln -s /etc/apache2/conf-available/servername.conf /etc/apache2/conf-enabled/servername.conf
 
 # disable default web site
-mkdir /var/www/default
-mv /var/www/index.html /var/www/default/
-rm /etc/apache2/sites-enabled/000-default
+mkdir -p /var/www/default/html
+mv /var/www/html/index.html /var/www/default/html/
+rmdir /var/www/html
+rm /etc/apache2/sites-enabled/000-default.conf
 
 # enable project web site
+service apache2 stop
+umount /var/www/website
 cp /vagrant/provision/website.conf /etc/apache2/sites-available/website.conf
-ln -s /vagrant /var/www/website
 ln -s /etc/apache2/sites-available/website.conf /etc/apache2/sites-enabled/website.conf
+mkdir -p /var/www/website
+mkdir -p /var/www/website/logs
+mkdir -p /var/www/website/web
+chown -R vagrant:vagrant /var/www/website
+mount -t vboxsf -o rw,uid=vagrant,gid=vagrant vagrant /var/www/website
 
 # restart apache2
 service apache2 restart
