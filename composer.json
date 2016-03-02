@@ -10,21 +10,21 @@
     },
     "require": {
         "php": ">=5.3.9",
-        "symfony/symfony": "2.7.*",
-        "doctrine/orm": "~2.2,>=2.2.3,<2.5",
-        "doctrine/dbal": "<2.5",
+        "symfony/symfony": "~2.8",
+        "doctrine/orm": "~2.3",
+        "doctrine/dbal": "~2.3",
         "doctrine/doctrine-bundle": "~1.4",
         "symfony/assetic-bundle": "~2.3",
         "symfony/swiftmailer-bundle": "~2.3",
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~4.0",
-        "sensio/framework-extra-bundle": "~3.0,>=3.0.2",
+        "sensio/framework-extra-bundle": "~3.0.2",
         "incenteev/composer-parameter-handler": "~2.0",
-        "doctrine/migrations":"dev-master",
-        "doctrine/doctrine-migrations-bundle":"dev-master",
-	"hautelook/alice-bundle":"dev-master",
-        "doctrine/data-fixtures": "^1.1",
-        "doctrine/doctrine-fixtures-bundle": "^2.2"
+        "doctrine/migrations":"~1.4",
+        "doctrine/doctrine-migrations-bundle":"~1.1",
+        "hautelook/alice-bundle":"~1.2",
+        "doctrine/data-fixtures": "~1.1",
+        "doctrine/doctrine-fixtures-bundle": "~2.2"
 
     },
     "require-dev": {
