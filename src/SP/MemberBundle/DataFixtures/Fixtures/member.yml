@@ -1,6 +1,26 @@
 SP\MemberBundle\Entity\Member:
   member_{1..100}:
-    usrFirstname: <name()>
-    usrLastname: <name()>
+    usrFirstname: <firstname()>
+    usrLastname: <lastname()>
     usrBirthdate: <dateTime()>
+    username: <identity($usrFirstname)>.<identity($usrLastname)>
+    email: <identity($username)>@mutualab.org
+    enabled: <boolean()>
+    salt: 1234567890123456789012
+    plainPassword: 123
+    locked: <boolean()>
+    expired: <boolean()>
+    credentialsExpired: <boolean()>
 
+  member_user:
+    usrFirstname: toto
+    usrLastname: tata
+    usrBirthdate: <dateTime()>
+    username: toto.tata
+    email: toto.tata@gmail.com
+    enabled: true
+    salt: 1234567890123456789012
+    plainPassword: 123
+    locked: false
+    expired: false
+    credentialsExpired: false

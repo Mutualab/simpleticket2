@@ -1,15 +1,13 @@
 <?php
-
 namespace SP\MemberBundle\Entity;
-
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-
+use FOS\UserBundle\Entity\User as BaseUser;
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
  */
-class Member
+class Member extends BaseUser
 {
     /**
      * @ORM\Id
@@ -18,13 +16,12 @@ class Member
      */
     protected $id;
 
-        /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_firstname", type="string", length=64)
-     */
-    private $usrFirstname;
-
+            /**
+         * @var string
+         *
+         * @ORM\Column(name="usr_firstname", type="string", length=64)
+         */
+        private $usrFirstname;
     /**
      * @var string
      *
@@ -33,95 +30,76 @@ class Member
     private $usrLastname;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_mail", type="string", length=128,nullable=true)
-     */
-    private $usrMail;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="usr_birthdate", type="date")
      */
     private $usrBirthdate;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_website", type="string", length=128,nullable=true)
      */
     private $usrWebsite;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_mobile", type="string", length=16,nullable=true)
      */
     private $usrMobile;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_job_type", type="string", length=64,nullable=true)
      */
     private $usrJobType;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_job_title", type="string", length=64,nullable=true)
      */
     private $usrJobTitle;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_state", type="string", length=24,nullable=true,options={"unsigned":true, "default":"Active"})
      */
     private $usrState = 'Active';
-
      /**
      * @var \DateTime
      *
      * @ORM\Column(name="usr_dcre", type="date")
      */
     private $usrDcre;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_ucre", type="string", length=20, options={"unsigned":true, "default":"Developper"})
      */
     private $usrUcre = 'Developper';
-
        /**
      * @var \DateTime
      *
      * @ORM\Column(name="usr_dupd", type="date")
      */
     private $usrDupd;
-
         /**
      * @var string
      *
      * @ORM\Column(name="usr_uupd", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
     private $usrUupd = 'Developper';
-
     /**
      * @ORM\ManyToMany(targetEntity="Company", inversedBy="members")
      * @ORM\JoinTable(name="members_companies")
      **/
     private $companies;
-
     public function __construct(){
         // Par défaut, la date de creation et de modification est la date du jour
         $this->usrDcre = new \Datetime();
         $this->usrDupd = new \Datetime();
         $this->companies = new ArrayCollection();
    }
-
     /**
      * Get id
      *
@@ -133,29 +111,6 @@ class Member
     }
 
     /**
-     * Set usrFirstname
-     *
-     * @param string $usrFirstname
-     * @return user
-     */
-    public function setUsrFirstname($usrFirstname)
-    {
-        $this->usrFirstname = $usrFirstname;
-
-        return $this;
-    }
-
-    /**
-     * Get usrFirstname
-     *
-     * @return string
-     */
-    public function getUsrFirstname()
-    {
-        return $this->usrFirstname;
-    }
-
-    /**
      * Set usrLastname
      *
      * @param string $usrLastname
@@ -164,9 +119,28 @@ class Member
     public function setUsrLastname($usrLastname)
     {
         $this->usrLastname = $usrLastname;
-
         return $this;
     }
+    /**
+    * Set usrFirstname
+    *
+    * @param string $usrFirstname
+    * @return user
+    */
+   public function setUsrFirstname($usrFirstname)
+   {
+       $this->usrFirstname = $usrFirstname;
+       return $this;
+   }
+   /**
+    * Get usrFirstname
+    *
+    * @return string
+    */
+   public function getUsrFirstname()
+   {
+       return $this->usrFirstname;
+   }
 
     /**
      * Get usrLastname
@@ -179,29 +153,6 @@ class Member
     }
 
     /**
-     * Set usrMail
-     *
-     * @param string $usrMail
-     * @return user
-     */
-    public function setUsrMail($usrMail)
-    {
-        $this->usrMail = $usrMail;
-
-        return $this;
-    }
-
-    /**
-     * Get usrMail
-     *
-     * @return string
-     */
-    public function getUsrMail()
-    {
-        return $this->usrMail;
-    }
-
-    /**
      * Set usrBirthdate
      *
      * @param \DateTime $usrBirthdate
@@ -210,10 +161,8 @@ class Member
     public function setUsrBirthdate($usrBirthdate)
     {
         $this->usrBirthdate = $usrBirthdate;
-
         return $this;
     }
-
     /**
      * Get usrBirthdate
      *
@@ -223,7 +172,6 @@ class Member
     {
         return $this->usrBirthdate;
     }
-
     /**
      * Set usrWebsite
      *
@@ -233,10 +181,8 @@ class Member
     public function setUsrWebsite($usrWebsite)
     {
         $this->usrWebsite = $usrWebsite;
-
         return $this;
     }
-
     /**
      * Get usrWebsite
      *
@@ -246,7 +192,6 @@ class Member
     {
         return $this->usrWebsite;
     }
-
     /**
      * Set usrMobile
      *
@@ -256,10 +201,8 @@ class Member
     public function setUsrMobile($usrMobile)
     {
         $this->usrMobile = $usrMobile;
-
         return $this;
     }
-
     /**
      * Get usrMobile
      *
@@ -269,7 +212,6 @@ class Member
     {
         return $this->usrMobile;
     }
-
     /**
      * Set usrJobType
      *
@@ -279,10 +221,8 @@ class Member
     public function setUsrJobType($usrJobType)
     {
         $this->usrJobType = $usrJobType;
-
         return $this;
     }
-
     /**
      * Get usrJobType
      *
@@ -292,7 +232,6 @@ class Member
     {
         return $this->usrJobType;
     }
-
     /**
      * Set usrJobTitle
      *
@@ -302,10 +241,8 @@ class Member
     public function setUsrJobTitle($usrJobTitle)
     {
         $this->usrJobTitle = $usrJobTitle;
-
         return $this;
     }
-
     /**
      * Get usrJobTitle
      *
@@ -315,7 +252,6 @@ class Member
     {
         return $this->usrJobTitle;
     }
-
     /**
      * Set usrState
      *
@@ -325,10 +261,8 @@ class Member
     public function setUsrState($usrState)
     {
         $this->usrState = $usrState;
-
         return $this;
     }
-
     /**
      * Get usrState
      *
@@ -338,7 +272,6 @@ class Member
     {
         return $this->usrState;
     }
-
     /**
      * Set usrDcre
      *
@@ -348,10 +281,8 @@ class Member
     public function setUsrDcre($usrDcre)
     {
         $this->usrDcre = $usrDcre;
-
         return $this;
     }
-
     /**
      * Get usrDcre
      *
@@ -361,7 +292,6 @@ class Member
     {
         return $this->usrDcre;
     }
-
     /**
      * Set usrUcre
      *
@@ -371,10 +301,8 @@ class Member
     public function setUsrUcre($usrUcre)
     {
         $this->usrUcre = $usrUcre;
-
         return $this;
     }
-
     /**
      * Get usrUcre
      *
@@ -384,7 +312,6 @@ class Member
     {
         return $this->usrUcre;
     }
-
     /**
      * Set usrDupd
      *
@@ -394,10 +321,8 @@ class Member
     public function setUsrDupd($usrDupd)
     {
         $this->usrDupd = $usrDupd;
-
         return $this;
     }
-
     /**
      * Get usrDupd
      *
@@ -407,7 +332,6 @@ class Member
     {
         return $this->usrDupd;
     }
-
     /**
      * Set usrUupd
      *
@@ -417,10 +341,8 @@ class Member
     public function setUsrUupd($usrUupd)
     {
         $this->usrUupd = $usrUupd;
-
         return $this;
     }
-
     /**
      * Get usrUupd
      *
@@ -430,22 +352,18 @@ class Member
     {
         return $this->usrUupd;
     }
-
     public function getCompanies()
     {
         return $this->companies;
     }
-
     public function addCompany(Company $company)
     {
      //insere comme dans un tableau
         $this->companies[] = $company;
     }
-
     public function setCompanies($companies)
     {
         $this->companies = new ArrayCollection();
-
         foreach ($companies as $company) {
             $this->addComapny($company);
         }
