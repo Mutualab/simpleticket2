@@ -4,7 +4,11 @@ SP\MemberBundle\Entity\Member:
     usrLastname: <lastname()>
     usrBirthdate: <dateTime()>
     username: <identity($usrFirstname)>.<identity($usrLastname)>
+<<<<<<< HEAD
     email: <identity($username)>@mutualab.org
+=======
+    email: <identity($usrFirstname)>.<identity($usrLastname)>@mutualab.org
+>>>>>>> d4e15ca54c953f07b91c77443c571040fff277bc
     enabled: <boolean()>
     salt: 1234567890123456789012
     plainPassword: 123

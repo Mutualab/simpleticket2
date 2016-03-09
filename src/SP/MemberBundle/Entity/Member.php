@@ -3,6 +3,10 @@ namespace SP\MemberBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
+<<<<<<< HEAD
+=======
+
+>>>>>>> d4e15ca54c953f07b91c77443c571040fff277bc
 /**
  * @ORM\Entity
  * @ORM\Table(name="user")
