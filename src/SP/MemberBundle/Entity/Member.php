@@ -19,13 +19,12 @@ class Member extends BaseUser
      */
     protected $id;
 
-        /**
+    /**
      * @var string
      *
      * @ORM\Column(name="usr_firstname", type="string", length=64)
      */
     private $usrFirstname;
-
     /**
      * @var string
      *
@@ -34,93 +33,86 @@ class Member extends BaseUser
     private $usrLastname;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="usr_mail", type="string", length=128,nullable=true)
-     */
-    private $usrMail;
-
-    /**
      * @var \DateTime
      *
      * @ORM\Column(name="usr_birthdate", type="date")
      */
     private $usrBirthdate;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_website", type="string", length=128,nullable=true)
      */
     private $usrWebsite;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_mobile", type="string", length=16,nullable=true)
      */
     private $usrMobile;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_job_type", type="string", length=64,nullable=true)
      */
     private $usrJobType;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_job_title", type="string", length=64,nullable=true)
      */
     private $usrJobTitle;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_state", type="string", length=24,nullable=true,options={"unsigned":true, "default":"Active"})
      */
     private $usrState = 'Active';
-
      /**
      * @var \DateTime
      *
      * @ORM\Column(name="usr_dcre", type="date")
      */
     private $usrDcre;
-
     /**
      * @var string
      *
      * @ORM\Column(name="usr_ucre", type="string", length=20, options={"unsigned":true, "default":"Developper"})
      */
     private $usrUcre = 'Developper';
-
        /**
      * @var \DateTime
      *
      * @ORM\Column(name="usr_dupd", type="date")
      */
     private $usrDupd;
-
         /**
      * @var string
      *
      * @ORM\Column(name="usr_uupd", type="string", length=20,options={"unsigned":true, "default":"Developper"})
      */
     private $usrUupd = 'Developper';
-
     /**
      * @ORM\ManyToMany(targetEntity="Company", inversedBy="members")
      * @ORM\JoinTable(name="members_companies")
      **/
     private $companies;
-
     public function __construct(){
         // Par défaut, la date de creation et de modification est la date du jour
         $this->usrDcre = new \Datetime();
         $this->usrDupd = new \Datetime();
         $this->companies = new ArrayCollection();
+   }
+    /**
+    * Set usrFirstname
+    *
+    * @param string $usrFirstname
+    * @return user
+    */
+   public function setUsrFirstname($usrFirstname)
+   {
+       $this->usrFirstname = $usrFirstname;
+       return $this;
    }
 
     /**
@@ -133,28 +125,15 @@ class Member extends BaseUser
         return $this->id;
     }
 
-    /**
-     * Set usrFirstname
-     *
-     * @param string $usrFirstname
-     * @return user
-     */
-    public function setUsrFirstname($usrFirstname)
-    {
-        $this->usrFirstname = $usrFirstname;
-
-        return $this;
-    }
-
-    /**
-     * Get usrFirstname
-     *
-     * @return string
-     */
-    public function getUsrFirstname()
-    {
-        return $this->usrFirstname;
-    }
+   /**
+    * Get usrFirstname
+    *
+    * @return string
+    */
+   public function getUsrFirstname()
+   {
+       return $this->usrFirstname;
+   }
 
     /**
      * Set usrLastname
@@ -165,7 +144,6 @@ class Member extends BaseUser
     public function setUsrLastname($usrLastname)
     {
         $this->usrLastname = $usrLastname;
-
         return $this;
     }
 
@@ -177,29 +155,6 @@ class Member extends BaseUser
     public function getUsrLastname()
     {
         return $this->usrLastname;
-    }
-
-    /**
-     * Set usrMail
-     *
-     * @param string $usrMail
-     * @return user
-     */
-    public function setUsrMail($usrMail)
-    {
-        $this->usrMail = $usrMail;
-
-        return $this;
-    }
-
-    /**
-     * Get usrMail
-     *
-     * @return string
-     */
-    public function getUsrMail()
-    {
-        return $this->usrMail;
     }
 
     /**
@@ -234,7 +189,6 @@ class Member extends BaseUser
     public function setUsrWebsite($usrWebsite)
     {
         $this->usrWebsite = $usrWebsite;
-
         return $this;
     }
 
@@ -257,7 +211,6 @@ class Member extends BaseUser
     public function setUsrMobile($usrMobile)
     {
         $this->usrMobile = $usrMobile;
-
         return $this;
     }
 
@@ -280,7 +233,6 @@ class Member extends BaseUser
     public function setUsrJobType($usrJobType)
     {
         $this->usrJobType = $usrJobType;
-
         return $this;
     }
 
@@ -303,7 +255,6 @@ class Member extends BaseUser
     public function setUsrJobTitle($usrJobTitle)
     {
         $this->usrJobTitle = $usrJobTitle;
-
         return $this;
     }
 
@@ -326,7 +277,6 @@ class Member extends BaseUser
     public function setUsrState($usrState)
     {
         $this->usrState = $usrState;
-
         return $this;
     }
 
@@ -349,7 +299,6 @@ class Member extends BaseUser
     public function setUsrDcre($usrDcre)
     {
         $this->usrDcre = $usrDcre;
-
         return $this;
     }
 
@@ -372,7 +321,6 @@ class Member extends BaseUser
     public function setUsrUcre($usrUcre)
     {
         $this->usrUcre = $usrUcre;
-
         return $this;
     }
 
@@ -395,7 +343,6 @@ class Member extends BaseUser
     public function setUsrDupd($usrDupd)
     {
         $this->usrDupd = $usrDupd;
-
         return $this;
     }
 
@@ -418,7 +365,6 @@ class Member extends BaseUser
     public function setUsrUupd($usrUupd)
     {
         $this->usrUupd = $usrUupd;
-
         return $this;
     }
 
@@ -431,22 +377,18 @@ class Member extends BaseUser
     {
         return $this->usrUupd;
     }
-
     public function getCompanies()
     {
         return $this->companies;
     }
-
     public function addCompany(Company $company)
     {
      //insere comme dans un tableau
         $this->companies[] = $company;
     }
-
     public function setCompanies($companies)
     {
         $this->companies = new ArrayCollection();
-
         foreach ($companies as $company) {
             $this->addComapny($company);
         }
