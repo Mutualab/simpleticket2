@@ -16,7 +16,7 @@
         <a href="{{ path('sp_orderline_view', {'id': orderline.id}) }}">
         Commande numero {{ orderline.id}} du
         {{orderline.odlDcre|date('d/m/Y')}}
-        {{ orderline.member ? orderline.member.usrfirstname }}
+        {{ orderline.member ? orderline.member.usrFirstname }}
         {{ orderline.member ? orderline.member.usrlastname }}
         {{ orderline.company ? orderline.company.cpyname }}
          </a>
