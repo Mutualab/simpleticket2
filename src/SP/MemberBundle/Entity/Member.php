@@ -1,5 +1,7 @@
 <?php
+
 namespace SP\MemberBundle\Entity;
+
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Entity\User as BaseUser;
@@ -17,12 +19,12 @@ class Member extends BaseUser
      */
     protected $id;
 
-            /**
-         * @var string
-         *
-         * @ORM\Column(name="usr_firstname", type="string", length=64)
-         */
-        private $usrFirstname;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="usr_firstname", type="string", length=64)
+     */
+    private $usrFirstname;
     /**
      * @var string
      *
@@ -102,6 +104,18 @@ class Member extends BaseUser
         $this->companies = new ArrayCollection();
    }
     /**
+    * Set usrFirstname
+    *
+    * @param string $usrFirstname
+    * @return user
+    */
+   public function setUsrFirstname($usrFirstname)
+   {
+       $this->usrFirstname = $usrFirstname;
+       return $this;
+   }
+
+    /**
      * Get id
      *
      * @return integer
@@ -110,6 +124,16 @@ class Member extends BaseUser
     {
         return $this->id;
     }
+
+   /**
+    * Get usrFirstname
+    *
+    * @return string
+    */
+   public function getUsrFirstname()
+   {
+       return $this->usrFirstname;
+   }
 
     /**
      * Set usrLastname
@@ -122,26 +146,6 @@ class Member extends BaseUser
         $this->usrLastname = $usrLastname;
         return $this;
     }
-    /**
-    * Set usrFirstname
-    *
-    * @param string $usrFirstname
-    * @return user
-    */
-   public function setUsrFirstname($usrFirstname)
-   {
-       $this->usrFirstname = $usrFirstname;
-       return $this;
-   }
-   /**
-    * Get usrFirstname
-    *
-    * @return string
-    */
-   public function getUsrFirstname()
-   {
-       return $this->usrFirstname;
-   }
 
     /**
      * Get usrLastname
@@ -162,8 +166,10 @@ class Member extends BaseUser
     public function setUsrBirthdate($usrBirthdate)
     {
         $this->usrBirthdate = $usrBirthdate;
+
         return $this;
     }
+
     /**
      * Get usrBirthdate
      *
@@ -173,6 +179,7 @@ class Member extends BaseUser
     {
         return $this->usrBirthdate;
     }
+
     /**
      * Set usrWebsite
      *
@@ -184,6 +191,7 @@ class Member extends BaseUser
         $this->usrWebsite = $usrWebsite;
         return $this;
     }
+
     /**
      * Get usrWebsite
      *
@@ -193,6 +201,7 @@ class Member extends BaseUser
     {
         return $this->usrWebsite;
     }
+
     /**
      * Set usrMobile
      *
@@ -204,6 +213,7 @@ class Member extends BaseUser
         $this->usrMobile = $usrMobile;
         return $this;
     }
+
     /**
      * Get usrMobile
      *
@@ -213,6 +223,7 @@ class Member extends BaseUser
     {
         return $this->usrMobile;
     }
+
     /**
      * Set usrJobType
      *
@@ -224,6 +235,7 @@ class Member extends BaseUser
         $this->usrJobType = $usrJobType;
         return $this;
     }
+
     /**
      * Get usrJobType
      *
@@ -233,6 +245,7 @@ class Member extends BaseUser
     {
         return $this->usrJobType;
     }
+
     /**
      * Set usrJobTitle
      *
@@ -244,6 +257,7 @@ class Member extends BaseUser
         $this->usrJobTitle = $usrJobTitle;
         return $this;
     }
+
     /**
      * Get usrJobTitle
      *
@@ -253,6 +267,7 @@ class Member extends BaseUser
     {
         return $this->usrJobTitle;
     }
+
     /**
      * Set usrState
      *
@@ -264,6 +279,7 @@ class Member extends BaseUser
         $this->usrState = $usrState;
         return $this;
     }
+
     /**
      * Get usrState
      *
@@ -273,6 +289,7 @@ class Member extends BaseUser
     {
         return $this->usrState;
     }
+
     /**
      * Set usrDcre
      *
@@ -284,6 +301,7 @@ class Member extends BaseUser
         $this->usrDcre = $usrDcre;
         return $this;
     }
+
     /**
      * Get usrDcre
      *
@@ -293,6 +311,7 @@ class Member extends BaseUser
     {
         return $this->usrDcre;
     }
+
     /**
      * Set usrUcre
      *
@@ -304,6 +323,7 @@ class Member extends BaseUser
         $this->usrUcre = $usrUcre;
         return $this;
     }
+
     /**
      * Get usrUcre
      *
@@ -313,6 +333,7 @@ class Member extends BaseUser
     {
         return $this->usrUcre;
     }
+
     /**
      * Set usrDupd
      *
@@ -324,6 +345,7 @@ class Member extends BaseUser
         $this->usrDupd = $usrDupd;
         return $this;
     }
+
     /**
      * Get usrDupd
      *
@@ -333,6 +355,7 @@ class Member extends BaseUser
     {
         return $this->usrDupd;
     }
+
     /**
      * Set usrUupd
      *
@@ -344,6 +367,7 @@ class Member extends BaseUser
         $this->usrUupd = $usrUupd;
         return $this;
     }
+
     /**
      * Get usrUupd
      *
