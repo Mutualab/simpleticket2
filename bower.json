@@ -1,0 +1,21 @@
+{
+  "name": "simpleticket2",
+  "homepage": "https://github.com/Mutualab/simpleticket2",
+  "authors": [
+    "Prozite <giacco.r@pop.eu.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
