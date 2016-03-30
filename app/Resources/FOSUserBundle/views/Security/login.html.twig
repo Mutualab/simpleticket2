@@ -8,7 +8,7 @@
 <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 <div class="container">
-    <div class="row">
+  <div class="row">
         <div class="col-md-offset-5 col-md-3">
             <div class="form-login">
             <h4>Welcome back.</h4>
@@ -16,16 +16,16 @@
                 <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
             <input type="text" id="username" class="form-control input-sm chat-input" placeholder="username" name="_username" value="{{ last_username }}" required="required" />
-            </br>
+            <br />
             <input type="password"  class="form-control input-sm chat-input" placeholder="password" ="password" name="_password" required="required" />
-            </br>
+            <br />
             <div class="wrapper">
             <span class="group-btn">
               <input type="submit" id="_submit" class="btn btn-primary btn-md" name="_submit" value="{{ 'submit'|trans({}, 'FOSUserBundle') }}" />
             </span>
+            </div>
             </form>
 
-            </div>
             </div>
 
         </div>

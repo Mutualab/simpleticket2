@@ -3,15 +3,14 @@
     <head>
         <meta charset="UTF-8" />
         {% block stylesheets %}
-          {# On charge le CSS de bootstrap depuis le site de twitter directement #}
-          <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+          <link rel="stylesheet" href="/assets/vendor/bootstrap/dist/css/bootstrap.min.css">
         {% endblock %}
 
     </head>
     <body>
       <div>
               {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                  {{ ''|trans({'%username%': app.user.username}, 'FOSUserBundle') }} 
+                  {{ ''|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
                   <a href="{{ path('fos_user_security_logout') }}">
                       {{ 'logout'|trans({}, 'FOSUserBundle') }}
                   </a>
