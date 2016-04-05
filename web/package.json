@@ -1,0 +1,17 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wiredep":"wiredep -s ../src/SP/MemberBundle/Resources/views/dependencies-dev.html.twig --ignorePath ../../../web/",
+    "usemin": "usemin dependencies-dev.html.twig -d ./ -o ../src/SP/MemberBundle/Resources/views/dependencies.html.twig"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "usemin-cli": "0.0.7",
+    "wiredep-cli": "^0.1.0"
+  }
+}
