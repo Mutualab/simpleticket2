@@ -1,7 +1,22 @@
+# Simple Ticket 2
 
+Projet basé sur Symfony 2.8
 
-A Symfony project created on August 19, 2015, 4:06 pm.
-=======
-# -simpleticket-2.1-
-[simpleticket-2.1] version sous Synfony 2
-Simple/master
+## installation d'un environnement de développement
+
+```bash
+composer install
+vagrant up
+vagrant ssh
+cd /var/www/website/
+./reset-env.sh
+```
+
+## compilation des dépendances du front
+
+```bash
+cd web
+bower install
+npm run build
+```
+

@@ -1,0 +1,19 @@
+{
+  "name": "web",
+  "version": "0.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run font && npm run wiredep && npm run usemin",
+    "font": "cp -r bower_components/bootstrap/dist/fonts ./",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "usemin": "cp ../src/SP/MemberBundle/Resources/views/dependencies-dev.html.twig ./ && usemin dependencies-dev.html.twig -d ./ -o ../src/SP/MemberBundle/Resources/views/dependencies.html.twig && rm dependencies-dev.html.twig",
+    "wiredep":"wiredep -s ../src/SP/MemberBundle/Resources/views/dependencies-dev.html.twig --ignorePath ../../../../../web"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "usemin-cli": "0.0.7",
+    "wiredep-cli": "^0.1.0"
+  }
+}

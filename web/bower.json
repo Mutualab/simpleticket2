@@ -1,0 +1,29 @@
+{
+  "name": "simpleticket2",
+  "homepage": "https://github.com/Mutualab/simpleticket2",
+  "authors": [
+    "Prozite <giacco.r@pop.eu.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "GPLV3",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  },
+  "overrides": {
+    "bootstrap": {
+      "main": [
+        "dist/css/bootstrap.css",
+        "dist/js/bootstrap.js"
+      ]
+    }
+  }
+}
