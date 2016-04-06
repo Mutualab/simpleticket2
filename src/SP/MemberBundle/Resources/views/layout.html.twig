@@ -6,7 +6,11 @@
 
   <title>{% block title %}SP Member{% endblock %}</title>
 
-  {{ include ('SPMemberBundle::dependencies-dev.html.twig') }} 
+  {% if app.environment == 'prod' %}
+    {{ include ('SPMemberBundle::dependencies.html.twig') }} 
+  {% else %}
+    {{ include ('SPMemberBundle::dependencies-dev.html.twig') }} 
+  {% endif  %}
 
 </head>
 

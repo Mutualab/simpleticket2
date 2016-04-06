@@ -1,5 +1,4 @@
 {
-	"directory": "./assets/vendor/bower_components",
 	"scripts":{
 		"postinstall": "npm run wiredep"
 	}

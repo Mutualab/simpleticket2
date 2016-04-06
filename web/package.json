@@ -4,9 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "npm run font && npm run wiredep && npm run usemin",
+    "font": "cp -r bower_components/bootstrap/dist/fonts ./",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "wiredep":"wiredep -s ../src/SP/MemberBundle/Resources/views/dependencies-dev.html.twig --ignorePath ../../../web/",
-    "usemin": "usemin dependencies-dev.html.twig -d ./ -o ../src/SP/MemberBundle/Resources/views/dependencies.html.twig"
+    "usemin": "cp ../src/SP/MemberBundle/Resources/views/dependencies-dev.html.twig ./ && usemin dependencies-dev.html.twig -d ./ -o ../src/SP/MemberBundle/Resources/views/dependencies.html.twig && rm dependencies-dev.html.twig",
+    "wiredep":"wiredep -s ../src/SP/MemberBundle/Resources/views/dependencies-dev.html.twig --ignorePath ../../../../../web"
   },
   "author": "",
   "license": "ISC",
