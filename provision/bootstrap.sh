@@ -16,6 +16,10 @@ sed -ie 's/\;date\.timezone\ \=/date\.timezone\ \=\ Europe\/Paris/g' /etc/php5/a
 # install apache2
 apt-get install -y apache2
 
+# configure apache2 server name
+cp /vagrant/provision/servername.conf /etc/apache2/conf-available/servername.conf
+ln -s /etc/apache2/conf-available/servername.conf /etc/apache2/conf-enabled/servername.conf
+
 # run apache2 with user vagrant and group vagrant
 sed -i "s/export APACHE_RUN_USER=www-data/export APACHE_RUN_USER=vagrant/" /etc/apache2/envvars
 sed -i "s/export APACHE_RUN_GROUP=www-data/export APACHE_RUN_GROUP=vagrant/" /etc/apache2/envvars
@@ -56,10 +60,6 @@ apt-get install -y php5-gd
 apt-get install -y php5-intl
 apt-get install -y php5-mysql
 apt-get install -y php5-xdebug
-
-# configure apache2
-cp /vagrant/provision/servername.conf /etc/apache2/conf-available/servername.conf
-ln -s /etc/apache2/conf-available/servername.conf /etc/apache2/conf-enabled/servername.conf
 
 # disable default web site
 mkdir -p /var/www/default/html
